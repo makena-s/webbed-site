@@ -1,0 +1,17 @@
+<!-- default page template, includes navigation -->
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="/assets/css/styles.css"> <!-- /_site's static site css -->
+  </head>
+
+  <body>
+    {% include topnav.html %}
+    {{ content }}
+  </body>
+
+</html>

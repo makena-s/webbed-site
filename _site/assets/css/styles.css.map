@@ -1,0 +1,14 @@
+{
+	"version": 3,
+	"file": "styles.css",
+	"sources": [
+		"styles.scss",
+		"_sass/main.scss"
+	],
+	"sourcesContent": [
+		"// CSS hub to list/organize CSS files\n// automatically generates into static site's styles.css, which is the stylesheet used by layouts\n\n// tell sass to look for a file called main.scss in /_sass\n@import \"main\";\n",
+		"// sass that will be imported into CSS hub styles.scss\r\n\r\n//\"current\" class for highlighting navigation bar\r\n.current {\r\n  color: green;\r\n}\r\n"
+	],
+	"names": [],
+	"mappings": "ACGA,AAAA,QAAQ,CAAC,EACP,KAAK,EAAE,KAAK,GACb"
+}

@@ -1,0 +1,7 @@
+# stores data for navigation bar, call with "site.data.navigation"
+- name: home
+  link: /
+- name: about
+  link: /about.html
+- name: coolpages
+  link: /coolpages.html

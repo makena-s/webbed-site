@@ -1,0 +1,8 @@
+---
+---
+
+// CSS hub to list/organize CSS files
+// automatically generates into static site's styles.css, which is the stylesheet used by layouts
+
+// tell sass to look for a file called main.scss in /_sass
+@import "main";
