@@ -15,6 +15,7 @@
   - url: site's full url (https://makena-s.github.io)
   - baseurl: subdirectory the site is served from (/webbed-site), recommended for subdomain sites like github project sites
   - relative url filter: prepends baseurl config value {{ "/category/page.html" | relative_url }}
+  - one site says to add relative url to every link, 
 
 ## MARKDOWN
 - markdown guide https://itsfoss.com/markdown-guide/

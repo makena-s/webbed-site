@@ -2,8 +2,10 @@
 # output creates a page for each document
 
 # url settings
-url: https://makena-s.github.io/webbed-site
-# baseurl: /webbed-site
+# adding baseurl to url does not work
+url: https://makena-s.github.io
+baseurl: /webbed-site
+url-root: /webbed-site
 
 # site collections
 collections:
