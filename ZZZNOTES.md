@@ -1,42 +1,50 @@
-## JEKYLL SITE NOTES
-- attempt #3: followed jekyll tutorial again https://jekyllrb.com/docs/step-by-step/01-setup/
-- satisfying success B^)
+---
+title: zzznotes
+---
 
-## TEST SITE LOCALLY
-- http://localhost:4000/jekyll-boogaloo/
+{% raw %} <!-- prevents code from being read -->
+
+### PROJECT NOTES
+- attempt #3: followed jekyll tutorial again https://jekyllrb.com/docs/step-by-step/01-setup/, satisfying success B^)
+- filenames shouldn't have spaces (ex: breaks navigation highlighting)
+
+### TEST SITE LOCALLY
+- http://localhost:4000/webbed-site/
 - bundle exec jekyll serve
 - bundle exec jekyll serve --livereload
 
-## JEKYLL
+### JEKYLL
 - prefix all commands with "bundle exec" to ensure correct jekyll version
 - to use variables, metadata (ex: title), and liquid, add front matter to any markdown or html file
-- published site url vs baseurl help https://mademistakes.com/mastering-jekyll/site-url-baseurl/
+
+### LINKS: SITE URL / BASE URL
+- url vs. baseurl https://mademistakes.com/mastering-jekyll/site-url-baseurl/
   - both are site-wide variables set in config, do not include trailing /'s
   - url: site's full url (https://makena-s.github.io)
-  - baseurl: subdirectory the site is served from (/webbed-site), recommended for subdomain sites like github project sites
-  - relative url filter: prepends baseurl config value {{ "/category/page.html" | relative_url }}
+  - baseurl: subdirectory the site is served from (/webbed-site), recommended for subdomains like github project sites
+  - page url: everything after base url (/about.html)
+- no way to automatically prepend baseurl to all site links...
+- links: prepend {{ site.baseurl }} or use {{ "/about.html" | relative_url }} filter
+- markdown links: [about page]({{ site.baseurl }}/about.html) or [about page]({{ 'about.html' | relative_url }})
+- with baseurl defined in config, localhost now includes baseurl, so i can test links as they would be on github
 
-  - most sources say to prepend relative url {{ site.baseurl }}/add filter to every link, but there must be an easier way
-  - how to config entire site to include baseurl? config defaults? github pages gem?
-  - with baseurl defined in config, localhost must now include baseurl, so i can test links as they would be on the real server
-  - nav data does not support {{ site.baseurl }}/front matter 
-
-## MARKDOWN
+### MARKDOWN
 - markdown guide https://itsfoss.com/markdown-guide/
   - line break: 2 spaces after line + enter
   - new paragraph: enter x2
+  - to escape characters that would be used to format markdown (ex: * _ () #) prepend with backslash \
 - using html tags in markdown is encouraged https://daringfireball.net/projects/markdown/syntax#html
   - inline can be used anywhere
   - block-level elements (ex: div, table, p) must be at root level and surrounded by a blank line on top and bottom
 
-## SITE PLANNING
+### SITE PLANNING
 - no posts or prodbuild nonsense, just normal + collection pages
 - features: responsive, sidebar menu, click images to enlarge, embedded twines/code bits, footer image?
 - index: landing page with main menu
 - topic menus: school + mobile projects, twine, html/css/js showcase, code templates, jekyll notes, coding resources
   - sort projects by class/type of code? p3, p5js, etc. with short explanations of each
 
-## DATA LOCATIONS
+### DATA LOCATIONS
 - /_layouts: stores html page templates that can be used by other files
 - /_includes: stores source code (ex: navigation bar) that can be used in other files
 - /_data: stores YAML, JSON, and CSV files whose data can be used in other files
@@ -49,7 +57,7 @@
 - Gemfile: lists site's gems
 - Gemfile.lock: locks current gem versions
 
-## JEKYLL GLOSSARY
+### JEKYLL GLOSSARY
 - ruby: the coding language jekyll is written in
 - gem: ruby code package that performs specific functions
 - jekyll: gem, a static site generator
@@ -60,6 +68,7 @@
   - filter: changes the output of an object, ex: {{ "hi" | capitalize }}
 - front matter: tells jekyll to process liquid, the YAML code between two ---'s at the start of your page
 - front matter variable: defined in front matter, call in liquid with "page" variable, ex: my_num: 5 -> {{ page.my_num }} -> 5
+- front matter defaults: config option to automatically add values to files' front matter  
 - YAML: common ruby file format, stores data
 - layout: html template that wraps around markdown page content, can be used by any page
   - you can call front matter in your layout file, it will use the front matter of the page the layout is called on
@@ -67,9 +76,12 @@
 - {{ content }}: object used in layouts, a special variable that returns the rendered content of the page the layout is called on
 - {% include name.html %}: tag used in layouts, includes content from files in _includes
 - sass: css extension used by jekyll, supports variables, nesting, operators, etc.
-- collection: group of documents, similar to a jekyll blog of posts but not organized by date
+- collection: group of documents, similar to a jekyll blog of posts but not organized by date (can be selected by config defaults)
 - document: item in a collection
 
-## BONUS NOTES
+### BONUS NOTES
 - if this is your first site, bundle add webrick before testing site locally
 - info on filtering collection items https://jekyllrb.com/docs/step-by-step/09-collections/
+- filter that allows liquid in front matter https://github.com/gemfarmer/jekyll-liquify
+
+{% endraw %}

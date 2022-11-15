@@ -1,29 +1,25 @@
 # site settings, does not automatically refresh with jekyll serve
-# output creates a page for each document
 
 # url settings
 # adding baseurl to url does not automatically prepend it to links
-# site.baseurl doesn't work i think and just goes back to localhost root
 url: https://makena-s.github.io
-site.baseurl: /webbed-site
+baseurl: /webbed-site
 
 # site collections
 collections:
   coolpages:
-    output: true
+    output: true # output creates a page for each document
 
-# front matter defaults, ex: automatically assign layouts to specific page types
+# front matter defaults, automatically add values to front matter (ex: assign layouts to specific page types)
+# scope = WHICH files to add to, values = WHAT values to add
+# general paths are overriden by more specific ones, which are overriden by in-file front matter
 defaults:
-  - scope:
-      path: ""
-      type: "coolpages"
-    values:
-      layout: "coolpage"
   - scope:
       path: ""
     values:
       layout: "default"
-
-# exclude files you don't want in build/output
-exclude:
-  - ZZZ NOTES
+  - scope:
+      path: "" # select all files in project
+      type: "coolpages" # optional, select file type within chosen path
+    values: # can add your own values, ex: "author"
+      layout: "coolpage"

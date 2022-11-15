@@ -6,25 +6,38 @@
   <head>
     <meta charset="utf-8">
     <title>Test1</title>
-    <link rel="stylesheet" href="/assets/css/styles.css"> <!-- /_site's static site css -->
+    <link rel="stylesheet" href="/webbed-site/assets/css/styles.css"> <!-- /_site's static site css -->
   </head>
 
   <body>
     <!-- top navigation bar source code -->
 <nav>
   
-    <a href="/" >
+    <!-- relative_url filter prepends baseurl  -->
+    <!-- "current" does not work if filenames have spaces -->
+    <a href="/webbed-site/" >
       home
     </a>
   
-    <a href="/about.html" >
+    <!-- relative_url filter prepends baseurl  -->
+    <!-- "current" does not work if filenames have spaces -->
+    <a href="/webbed-site/about.html" >
       about
     </a>
   
-    <a href="/coolpages.html" >
+    <!-- relative_url filter prepends baseurl  -->
+    <!-- "current" does not work if filenames have spaces -->
+    <a href="/webbed-site/coolpages.html" >
       coolpages
     </a>
   
+    <!-- relative_url filter prepends baseurl  -->
+    <!-- "current" does not work if filenames have spaces -->
+    <a href="/webbed-site/ZZZNOTES.html" >
+      zzznotes
+    </a>
+  
+
 </nav>
 
     <!-- coolpage page template -->

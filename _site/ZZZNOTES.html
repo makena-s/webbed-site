@@ -1,0 +1,194 @@
+<!-- default page template, includes navigation -->
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>zzznotes</title>
+    <link rel="stylesheet" href="/webbed-site/assets/css/styles.css"> <!-- /_site's static site css -->
+  </head>
+
+  <body>
+    <!-- top navigation bar source code -->
+<nav>
+  
+    <!-- relative_url filter prepends baseurl  -->
+    <!-- "current" does not work if filenames have spaces -->
+    <a href="/webbed-site/" >
+      home
+    </a>
+  
+    <!-- relative_url filter prepends baseurl  -->
+    <!-- "current" does not work if filenames have spaces -->
+    <a href="/webbed-site/about.html" >
+      about
+    </a>
+  
+    <!-- relative_url filter prepends baseurl  -->
+    <!-- "current" does not work if filenames have spaces -->
+    <a href="/webbed-site/coolpages.html" >
+      coolpages
+    </a>
+  
+    <!-- relative_url filter prepends baseurl  -->
+    <!-- "current" does not work if filenames have spaces -->
+    <a href="/webbed-site/ZZZNOTES.html" class="current">
+      zzznotes
+    </a>
+  
+
+</nav>
+
+    <p><!-- prevents code from being read --></p>
+
+<h3 id="project-notes">PROJECT NOTES</h3>
+<ul>
+  <li>attempt #3: followed jekyll tutorial again https://jekyllrb.com/docs/step-by-step/01-setup/, satisfying success B^)</li>
+  <li>filenames shouldn’t have spaces (ex: breaks navigation highlighting)</li>
+</ul>
+
+<h3 id="test-site-locally">TEST SITE LOCALLY</h3>
+<ul>
+  <li>http://localhost:4000/webbed-site/</li>
+  <li>bundle exec jekyll serve</li>
+  <li>bundle exec jekyll serve –livereload</li>
+</ul>
+
+<h3 id="jekyll">JEKYLL</h3>
+<ul>
+  <li>prefix all commands with “bundle exec” to ensure correct jekyll version</li>
+  <li>to use variables, metadata (ex: title), and liquid, add front matter to any markdown or html file</li>
+</ul>
+
+<h3 id="links-site-url--base-url">LINKS: SITE URL / BASE URL</h3>
+<ul>
+  <li>url vs. baseurl https://mademistakes.com/mastering-jekyll/site-url-baseurl/
+    <ul>
+      <li>both are site-wide variables set in config, do not include trailing /’s</li>
+      <li>url: site’s full url (https://makena-s.github.io)</li>
+      <li>baseurl: subdirectory the site is served from (/webbed-site), recommended for subdomains like github project sites</li>
+      <li>page url: everything after base url (/about.html)</li>
+    </ul>
+  </li>
+  <li>no way to automatically prepend baseurl to all site links…</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>links: prepend {{ site.baseurl }} or use {{ “/about.html”</td>
+          <td>relative_url }} filter</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>markdown links: <a href="{{ site.baseurl }}/about.html">about page</a> or [about page]({{ ‘about.html’</td>
+          <td>relative_url }})</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>with baseurl defined in config, localhost now includes baseurl, so i can test links as they would be on github</li>
+</ul>
+
+<h3 id="markdown">MARKDOWN</h3>
+<ul>
+  <li>markdown guide https://itsfoss.com/markdown-guide/
+    <ul>
+      <li>line break: 2 spaces after line + enter</li>
+      <li>new paragraph: enter x2</li>
+      <li>to escape characters that would be used to format markdown (ex: * _ () #) prepend with backslash \</li>
+    </ul>
+  </li>
+  <li>using html tags in markdown is encouraged https://daringfireball.net/projects/markdown/syntax#html
+    <ul>
+      <li>inline can be used anywhere</li>
+      <li>block-level elements (ex: div, table, p) must be at root level and surrounded by a blank line on top and bottom</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="site-planning">SITE PLANNING</h3>
+<ul>
+  <li>no posts or prodbuild nonsense, just normal + collection pages</li>
+  <li>features: responsive, sidebar menu, click images to enlarge, embedded twines/code bits, footer image?</li>
+  <li>index: landing page with main menu</li>
+  <li>topic menus: school + mobile projects, twine, html/css/js showcase, code templates, jekyll notes, coding resources
+    <ul>
+      <li>sort projects by class/type of code? p3, p5js, etc. with short explanations of each</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="data-locations">DATA LOCATIONS</h3>
+<ul>
+  <li>/_layouts: stores html page templates that can be used by other files</li>
+  <li>/_includes: stores source code (ex: navigation bar) that can be used in other files</li>
+  <li>/_data: stores YAML, JSON, and CSV files whose data can be used in other files</li>
+  <li>/assets: stores CSS, JS, images, etc. that can be used in other files
+    <ul>
+      <li>css/styles.scss: CSS hub</li>
+    </ul>
+  </li>
+  <li>/_sass: stores SCSS that will be imported into CSS hub styles.scss</li>
+  <li>/_coolpages: stores this collection’s documents</li>
+  <li>/_site: stores static site built by jekyll serve</li>
+  <li>_config.yml: site settings such as title, collections, and layout defaults, does not automatically refresh with jekyll serve</li>
+  <li>Gemfile: lists site’s gems</li>
+  <li>Gemfile.lock: locks current gem versions</li>
+</ul>
+
+<h3 id="jekyll-glossary">JEKYLL GLOSSARY</h3>
+<ul>
+  <li>ruby: the coding language jekyll is written in</li>
+  <li>gem: ruby code package that performs specific functions</li>
+  <li>jekyll: gem, a static site generator</li>
+  <li>Gemfile: lists your site’s gems, every jekyll site has one</li>
+  <li>liquid: templating language with 3 main components: objects, tags, and filters
+    <ul>
+      <li>object: outputs predefined variables as page content, ex: {{ page.title }} displays the “page.title” variable</li>
+      <li>tag: defines logic and control flow, ex: {% if page.show_sidebar %} sidebar content {% endif %}</li>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>filter: changes the output of an object, ex: {{ “hi”</td>
+              <td>capitalize }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
+  <li>front matter: tells jekyll to process liquid, the YAML code between two —’s at the start of your page</li>
+  <li>front matter variable: defined in front matter, call in liquid with “page” variable, ex: my_num: 5 -&gt; {{ page.my_num }} -&gt; 5</li>
+  <li>front matter defaults: config option to automatically add values to files’ front matter</li>
+  <li>YAML: common ruby file format, stores data</li>
+  <li>layout: html template that wraps around markdown page content, can be used by any page
+    <ul>
+      <li>you can call front matter in your layout file, it will use the front matter of the page the layout is called on</li>
+    </ul>
+  </li>
+  <li>layout inheritance: a layout can be wrapped in another layout</li>
+  <li>{{ content }}: object used in layouts, a special variable that returns the rendered content of the page the layout is called on</li>
+  <li>{% include name.html %}: tag used in layouts, includes content from files in _includes</li>
+  <li>sass: css extension used by jekyll, supports variables, nesting, operators, etc.</li>
+  <li>collection: group of documents, similar to a jekyll blog of posts but not organized by date (can be selected by config defaults)</li>
+  <li>document: item in a collection</li>
+</ul>
+
+<h3 id="bonus-notes">BONUS NOTES</h3>
+<ul>
+  <li>if this is your first site, bundle add webrick before testing site locally</li>
+  <li>info on filtering collection items https://jekyllrb.com/docs/step-by-step/09-collections/</li>
+  <li>filter that allows liquid in front matter https://github.com/gemfarmer/jekyll-liquify</li>
+</ul>
+
+
+  </body>
+
+</html>
