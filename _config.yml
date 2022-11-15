@@ -1,6 +1,10 @@
 # site settings, does not automatically refresh with jekyll serve
 # output creates a page for each document
 
+# url settings
+url: https://makena-s.github.io
+baseurl: /webbed-site
+
 # site collections
 collections:
   coolpages:

@@ -10,6 +10,11 @@
 ## JEKYLL
 - prefix all commands with "bundle exec" to ensure correct jekyll version
 - to use variables, metadata (ex: title), and liquid, add front matter to any markdown or html file
+- published site url vs baseurl help https://mademistakes.com/mastering-jekyll/site-url-baseurl/
+  - both are site-wide variables set in config, do not include trailing /'s
+  - url: site's full url (https://makena-s.github.io)
+  - baseurl: subdirectory the site is served from (/webbed-site), recommended for subdomain sites like github project sites
+  - relative url filter: prepends baseurl config value {{ "/category/page.html" | relative_url }}
 
 ## MARKDOWN
 - markdown guide https://itsfoss.com/markdown-guide/
