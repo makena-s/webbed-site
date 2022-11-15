@@ -1,5 +1,6 @@
-## JEKYLL NOTES
-- attempt #3: following jekyll tutorial again https://jekyllrb.com/docs/step-by-step/01-setup/
+## JEKYLL SITE NOTES
+- attempt #3: followed jekyll tutorial again https://jekyllrb.com/docs/step-by-step/01-setup/
+- satisfying success B^)
 
 ## TEST SITE LOCALLY
 - http://localhost:4000/jekyll-boogaloo/
@@ -7,7 +8,7 @@
 - bundle exec jekyll serve --livereload
 
 ## JEKYLL
-- prefix all tutorial commands with "bundle exec" to ensure correct jekyll version
+- prefix all commands with "bundle exec" to ensure correct jekyll version
 - to use variables, metadata (ex: title), and liquid, add front matter to any markdown or html file
 
 ## MARKDOWN
@@ -19,13 +20,11 @@
   - block-level elements (ex: div, table, p) must be at root level and surrounded by a blank line on top and bottom
 
 ## SITE PLANNING
-- include notes doc for locations and all notes
-- no posts or prodbuild nonsense, just normal pages with markdown/html and custom css
-- site planning
-  - features: responsive, sidebar menu, click images to enlarge, embedded twines/code bits, footer image?
-  - index: landing page with main menu
-  - topic menus: school projects, mobile projects, twine, js scraps, coding resources, html/css/js showcase, templates
-    - sort projects by class/type of code? p3, p5js, etc. with short explanations of each
+- no posts or prodbuild nonsense, just normal + collection pages
+- features: responsive, sidebar menu, click images to enlarge, embedded twines/code bits, footer image?
+- index: landing page with main menu
+- topic menus: school + mobile projects, twine, html/css/js showcase, code templates, jekyll notes, coding resources
+  - sort projects by class/type of code? p3, p5js, etc. with short explanations of each
 
 ## DATA LOCATIONS
 - /_layouts: stores html page templates that can be used by other files

@@ -17,3 +17,7 @@ defaults:
       path: ""
     values:
       layout: "default"
+
+# exclude files you don't want in build/output
+exclude:
+  - ZZZ NOTES
