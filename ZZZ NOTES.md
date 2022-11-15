@@ -15,7 +15,11 @@
   - url: site's full url (https://makena-s.github.io)
   - baseurl: subdirectory the site is served from (/webbed-site), recommended for subdomain sites like github project sites
   - relative url filter: prepends baseurl config value {{ "/category/page.html" | relative_url }}
-  - one site says to add relative url to every link, 
+
+  - most sources say to prepend relative url {{ site.baseurl }}/add filter to every link, but there must be an easier way
+  - how to config entire site to include baseurl? config defaults? github pages gem?
+  - with baseurl defined in config, localhost must now include baseurl, so i can test links as they would be on the real server
+  - nav data does not support {{ site.baseurl }}/front matter 
 
 ## MARKDOWN
 - markdown guide https://itsfoss.com/markdown-guide/

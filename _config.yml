@@ -2,10 +2,10 @@
 # output creates a page for each document
 
 # url settings
-# adding baseurl to url does not work
+# adding baseurl to url does not automatically prepend it to links
+# site.baseurl doesn't work i think and just goes back to localhost root
 url: https://makena-s.github.io
-baseurl: /webbed-site
-url-root: /webbed-site
+site.baseurl: /webbed-site
 
 # site collections
 collections:
