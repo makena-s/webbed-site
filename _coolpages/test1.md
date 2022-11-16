@@ -1,4 +1,4 @@
 ---
-name: numbah 1
+title: numbuh 1
 ---
-cool test page *numbah 1*
+cool test page *numbuh 1*

@@ -6,7 +6,10 @@
   <head>
     <meta charset="utf-8">
     <title>zzznotes</title>
+    <link rel="icon" type="image/x-icon" href="/webbed-site/assets/images/favicon-96.png"> <!-- favicon -->
     <link rel="stylesheet" href="/webbed-site/assets/css/styles.css"> <!-- /_site's static site css -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   </head>
 
   <body>
@@ -14,38 +17,66 @@
 <nav>
   
     <!-- relative_url filter prepends baseurl  -->
-    <!-- "current" does not work if filenames have spaces -->
+    <!-- "current" class does not work if filenames have spaces -->
     <a href="/webbed-site/" >
       home
     </a>
+    <br>
   
     <!-- relative_url filter prepends baseurl  -->
-    <!-- "current" does not work if filenames have spaces -->
+    <!-- "current" class does not work if filenames have spaces -->
     <a href="/webbed-site/about.html" >
       about
     </a>
+    <br>
   
     <!-- relative_url filter prepends baseurl  -->
-    <!-- "current" does not work if filenames have spaces -->
+    <!-- "current" class does not work if filenames have spaces -->
     <a href="/webbed-site/coolpages.html" >
       coolpages
     </a>
+    <br>
   
     <!-- relative_url filter prepends baseurl  -->
-    <!-- "current" does not work if filenames have spaces -->
+    <!-- "current" class does not work if filenames have spaces -->
     <a href="/webbed-site/ZZZNOTES.html" class="current">
       zzznotes
     </a>
+    <br>
   
-
 </nav>
 
     <p><!-- prevents code from being read --></p>
 
-<h3 id="project-notes">PROJECT NOTES</h3>
+<h3 id="project-info">PROJECT INFO</h3>
 <ul>
   <li>attempt #3: followed jekyll tutorial again https://jekyllrb.com/docs/step-by-step/01-setup/, satisfying success B^)</li>
-  <li>filenames shouldn’t have spaces (ex: breaks navigation highlighting)</li>
+  <li>no posts or production build, just normal and collection pages</li>
+  <li>no spaces in filenames (breaks navigation highlighting)</li>
+  <li>use relative_url filter instead of site.baseurl, fewer moving parts
+    <ul>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>{{ “/about.html”</td>
+              <td>relative_url }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>[description]({{ ‘/about.html’</td>
+              <td>relative_url }})</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="test-site-locally">TEST SITE LOCALLY</h3>
@@ -59,6 +90,24 @@
 <ul>
   <li>prefix all commands with “bundle exec” to ensure correct jekyll version</li>
   <li>to use variables, metadata (ex: title), and liquid, add front matter to any markdown or html file</li>
+</ul>
+
+<h3 id="markdown">MARKDOWN</h3>
+<ul>
+  <li>markdown guide https://itsfoss.com/markdown-guide/
+    <ul>
+      <li>line break: 2 spaces after line + enter</li>
+      <li>new paragraph: enter x2</li>
+      <li>to escape characters that would be used to format markdown (ex: * _ () #) prepend with backslash \</li>
+      <li>image = link prepended with !</li>
+    </ul>
+  </li>
+  <li>using html tags in markdown is encouraged https://daringfireball.net/projects/markdown/syntax#html
+    <ul>
+      <li>inline can be used anywhere</li>
+      <li>block-level elements (ex: div, table, p) must be at root level and surrounded by a blank line on top and bottom</li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="links-site-url--base-url">LINKS: SITE URL / BASE URL</h3>
@@ -86,7 +135,7 @@
     <table>
       <tbody>
         <tr>
-          <td>markdown links: <a href="{{ site.baseurl }}/about.html">about page</a> or [about page]({{ ‘about.html’</td>
+          <td>markdown links: <a href="{{ site.baseurl }}/about.html">about page</a> or [about page]({{ ‘/about.html’</td>
           <td>relative_url }})</td>
         </tr>
       </tbody>
@@ -95,31 +144,40 @@
   <li>with baseurl defined in config, localhost now includes baseurl, so i can test links as they would be on github</li>
 </ul>
 
-<h3 id="markdown">MARKDOWN</h3>
+<h3 id="html--css-notes">HTML / CSS NOTES</h3>
 <ul>
-  <li>markdown guide https://itsfoss.com/markdown-guide/
+  <li>class vs. id: an element can have many classes and can appear many times per page, while id’s are exclusive and unique</li>
+  <li>padding = inside element, margin = outside element
     <ul>
-      <li>line break: 2 spaces after line + enter</li>
-      <li>new paragraph: enter x2</li>
-      <li>to escape characters that would be used to format markdown (ex: * _ () #) prepend with backslash \</li>
+      <li>margin: auto; will horizontally center element within container</li>
     </ul>
   </li>
-  <li>using html tags in markdown is encouraged https://daringfireball.net/projects/markdown/syntax#html
+  <li>value order based on number of values
     <ul>
-      <li>inline can be used anywhere</li>
-      <li>block-level elements (ex: div, table, p) must be at root level and surrounded by a blank line on top and bottom</li>
+      <li>2: topbottom, rightleft</li>
+      <li>3: top, rightleft, bottom</li>
+      <li>4: top, right, bottom, left (clockwise)</li>
     </ul>
   </li>
-</ul>
-
-<h3 id="site-planning">SITE PLANNING</h3>
-<ul>
-  <li>no posts or prodbuild nonsense, just normal + collection pages</li>
-  <li>features: responsive, sidebar menu, click images to enlarge, embedded twines/code bits, footer image?</li>
-  <li>index: landing page with main menu</li>
-  <li>topic menus: school + mobile projects, twine, html/css/js showcase, code templates, jekyll notes, coding resources
+  <li>css selectors https://www.w3schools.com/cssref/css_selectors.php
     <ul>
-      <li>sort projects by class/type of code? p3, p5js, etc. with short explanations of each</li>
+      <li>a:link:not(.current) {} does not select elements with the “current” class</li>
+      <li>:last-child selects last child of parent (ex: last p in body)</li>
+    </ul>
+  </li>
+  <li>shadows
+    <ul>
+      <li>text-shadow for text, box-shadow for elements</li>
+      <li>filter: drop-shadow(1px 1px 1px orange)</li>
+    </ul>
+  </li>
+  <li>
+    <h2 id="display-the-most-important-css-property-for-layout">display: the most important css property for layout</h2>
+  </li>
+  <li>font size: em allows users to resize text in browser menu
+    <ul>
+      <li>1em = current font size, browser default is 16px</li>
+      <li>set default size (100%) in body and use em to change other elements</li>
     </ul>
   </li>
 </ul>
@@ -181,11 +239,28 @@
   <li>document: item in a collection</li>
 </ul>
 
+<h3 id="site-planning">SITE PLANNING</h3>
+<ul>
+  <li>features: responsive, sidebar menu, click images to enlarge, embedded twines/code bits, footer image?</li>
+  <li>index: landing page with main menu</li>
+  <li>topic menus: school + mobile projects, twine, html/css/js showcase, code templates and cheatsheets, coding resources
+    <ul>
+      <li>sort projects by class/type of code? p3, p5js, etc. with short explanations of each</li>
+    </ul>
+  </li>
+  <li>
+    <nav> is its own thing, most navs (vertical and horizontal) seem to use ul's or div class="sidebar"
+
+</nav>
+  </li>
+</ul>
 <h3 id="bonus-notes">BONUS NOTES</h3>
 <ul>
   <li>if this is your first site, bundle add webrick before testing site locally</li>
   <li>info on filtering collection items https://jekyllrb.com/docs/step-by-step/09-collections/</li>
   <li>filter that allows liquid in front matter https://github.com/gemfarmer/jekyll-liquify</li>
+  <li>sass nesting https://www.w3schools.com/sass/sass_nesting.asp</li>
+  <li>css image gallery https://www.w3schools.com/csS/css_image_gallery.asp</li>
 </ul>
 
 

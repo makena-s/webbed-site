@@ -2,10 +2,10 @@
 <nav>
   {% for item in site.data.navigation %}
     <!-- relative_url filter prepends baseurl  -->
-    <!-- "current" does not work if filenames have spaces -->
+    <!-- "current" class does not work if filenames have spaces -->
     <a href="{{ item.link | relative_url }}" {% if page.url == item.link %}class="current"{% endif %}>
       {{ item.name }}
     </a>
+    <br>
   {% endfor %}
-
 </nav>

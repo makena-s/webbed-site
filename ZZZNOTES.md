@@ -4,9 +4,13 @@ title: zzznotes
 
 {% raw %} <!-- prevents code from being read -->
 
-### PROJECT NOTES
+### PROJECT INFO
 - attempt #3: followed jekyll tutorial again https://jekyllrb.com/docs/step-by-step/01-setup/, satisfying success B^)
-- filenames shouldn't have spaces (ex: breaks navigation highlighting)
+- no posts or production build, just normal and collection pages
+- no spaces in filenames (breaks navigation highlighting)
+- use relative_url filter instead of site.baseurl, fewer moving parts
+  - {{ "/about.html" | relative_url }}
+  - [description]({{ '/about.html' | relative_url }})
 
 ### TEST SITE LOCALLY
 - http://localhost:4000/webbed-site/
@@ -17,6 +21,16 @@ title: zzznotes
 - prefix all commands with "bundle exec" to ensure correct jekyll version
 - to use variables, metadata (ex: title), and liquid, add front matter to any markdown or html file
 
+### MARKDOWN
+- markdown guide https://itsfoss.com/markdown-guide/
+  - line break: 2 spaces after line + enter
+  - new paragraph: enter x2
+  - to escape characters that would be used to format markdown (ex: * _ () #) prepend with backslash \
+  - image = link prepended with !
+- using html tags in markdown is encouraged https://daringfireball.net/projects/markdown/syntax#html
+  - inline can be used anywhere
+  - block-level elements (ex: div, table, p) must be at root level and surrounded by a blank line on top and bottom
+
 ### LINKS: SITE URL / BASE URL
 - url vs. baseurl https://mademistakes.com/mastering-jekyll/site-url-baseurl/
   - both are site-wide variables set in config, do not include trailing /'s
@@ -25,24 +39,28 @@ title: zzznotes
   - page url: everything after base url (/about.html)
 - no way to automatically prepend baseurl to all site links...
 - links: prepend {{ site.baseurl }} or use {{ "/about.html" | relative_url }} filter
-- markdown links: [about page]({{ site.baseurl }}/about.html) or [about page]({{ 'about.html' | relative_url }})
+- markdown links: [about page]({{ site.baseurl }}/about.html) or [about page]({{ '/about.html' | relative_url }})
 - with baseurl defined in config, localhost now includes baseurl, so i can test links as they would be on github
 
-### MARKDOWN
-- markdown guide https://itsfoss.com/markdown-guide/
-  - line break: 2 spaces after line + enter
-  - new paragraph: enter x2
-  - to escape characters that would be used to format markdown (ex: * _ () #) prepend with backslash \
-- using html tags in markdown is encouraged https://daringfireball.net/projects/markdown/syntax#html
-  - inline can be used anywhere
-  - block-level elements (ex: div, table, p) must be at root level and surrounded by a blank line on top and bottom
-
-### SITE PLANNING
-- no posts or prodbuild nonsense, just normal + collection pages
-- features: responsive, sidebar menu, click images to enlarge, embedded twines/code bits, footer image?
-- index: landing page with main menu
-- topic menus: school + mobile projects, twine, html/css/js showcase, code templates, jekyll notes, coding resources
-  - sort projects by class/type of code? p3, p5js, etc. with short explanations of each
+### HTML / CSS NOTES
+- class vs. id: an element can have many classes and can appear many times per page, while id's are exclusive and unique
+- padding = inside element, margin = outside element
+  - margin: auto; will horizontally center element within container
+- value order based on number of values
+  - 2: topbottom, rightleft
+  - 3: top, rightleft, bottom
+  - 4: top, right, bottom, left (clockwise)
+- css selectors https://www.w3schools.com/cssref/css_selectors.php
+  - a:link:not(.current) {} does not select elements with the "current" class
+  - :last-child selects last child of parent (ex: last p in body)
+- shadows
+  - text-shadow for text, box-shadow for elements
+  - filter: drop-shadow(1px 1px 1px orange)
+- display: the most important css property for layout
+  -
+- font size: em allows users to resize text in browser menu
+  - 1em = current font size, browser default is 16px
+  - set default size (100%) in body and use em to change other elements
 
 ### DATA LOCATIONS
 - /_layouts: stores html page templates that can be used by other files
@@ -79,9 +97,18 @@ title: zzznotes
 - collection: group of documents, similar to a jekyll blog of posts but not organized by date (can be selected by config defaults)
 - document: item in a collection
 
+### SITE PLANNING
+- features: responsive, sidebar menu, click images to enlarge, embedded twines/code bits, footer image?
+- index: landing page with main menu
+- topic menus: school + mobile projects, twine, html/css/js showcase, code templates and cheatsheets, coding resources
+  - sort projects by class/type of code? p3, p5js, etc. with short explanations of each
+- <nav> is its own thing, most navs (vertical and horizontal) seem to use ul's or div class="sidebar"
+
 ### BONUS NOTES
 - if this is your first site, bundle add webrick before testing site locally
 - info on filtering collection items https://jekyllrb.com/docs/step-by-step/09-collections/
 - filter that allows liquid in front matter https://github.com/gemfarmer/jekyll-liquify
+- sass nesting https://www.w3schools.com/sass/sass_nesting.asp
+- css image gallery https://www.w3schools.com/csS/css_image_gallery.asp
 
 {% endraw %}
