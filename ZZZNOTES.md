@@ -11,6 +11,7 @@ title: zzznotes
 - use relative_url filter instead of site.baseurl, fewer moving parts
   - {{ "/about.html" | relative_url }}
   - [description]({{ '/about.html' | relative_url }})
+  - (i think the only /webbed-site is in main.scss custom font import)
 
 ### TEST SITE LOCALLY
 - http://localhost:4000/webbed-site/
@@ -51,16 +52,22 @@ title: zzznotes
   - 3: top, rightleft, bottom
   - 4: top, right, bottom, left (clockwise)
 - css selectors https://www.w3schools.com/cssref/css_selectors.php
-  - a:link:not(.current) {} does not select elements with the "current" class
+  - a:link:not(.current) {} selects elements besides those with the "current" class
   - :last-child selects last child of parent (ex: last p in body)
 - shadows
   - text-shadow for text, box-shadow for elements
   - filter: drop-shadow(1px 1px 1px orange)
 - display: the most important css property for layout
   -
-- font size: em allows users to resize text in browser menu
+- position: choose value then move with top/right/bottom/left properties
+  1. static: default, not affected by properties, normal page flow (won't overlap)
+  2. relative: can be moved relative to its normal position
+  3. fixed: relative to viewport, doesn't move when scrolled
+  4. absolute: can be moved relative to its nearest positioned ancestor (the box it's in), outside normal page flow
+  5. sticky: toggles between relative and fixed depending on scroll position
+- font size: em is a relative unit that allows users to resize text in browser menu
   - 1em = current font size, browser default is 16px
-  - set default size (100%) in body and use em to change other elements
+  - w3schools rec: set default size (100%) in body and use em to change other elements
 
 ### DATA LOCATIONS
 - /_layouts: stores html page templates that can be used by other files
@@ -102,13 +109,16 @@ title: zzznotes
 - index: landing page with main menu
 - topic menus: school + mobile projects, twine, html/css/js showcase, code templates and cheatsheets, coding resources
   - sort projects by class/type of code? p3, p5js, etc. with short explanations of each
-- <nav> is its own thing, most navs (vertical and horizontal) seem to use ul's or div class="sidebar"
+- <nav> is the same as <div>, most navs (vertical and horizontal) seem to use ul's or div class="sidebar"
+- footer is currently pushed down 1 screen size, so it's not visible upon load
 
 ### BONUS NOTES
 - if this is your first site, bundle add webrick before testing site locally
 - info on filtering collection items https://jekyllrb.com/docs/step-by-step/09-collections/
 - filter that allows liquid in front matter https://github.com/gemfarmer/jekyll-liquify
 - sass nesting https://www.w3schools.com/sass/sass_nesting.asp
+- sass numberics, ex: random https://www.w3schools.com/sass/sass_functions_numeric.php
 - css image gallery https://www.w3schools.com/csS/css_image_gallery.asp
+- referenced for footer at bottom of page https://stackoverflow.com/questions/18469262/position-footer-at-bottom-of-page-having-fixed-header
 
 {% endraw %}

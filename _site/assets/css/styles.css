@@ -2,15 +2,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap");
 @font-face { font-family: myfont; src: url(/webbed-site/assets/fonts/fullfont.ttf); }
 
-.current { color: limegreen; }
+nav { background-color: slateblue; font-size: 1.5em; width: 10em; }
 
-body { background-color: black; color: turquoise; font-family: 'Anonymous Pro', monospace; font-size: 100%; }
+a.current { color: limegreen; }
 
-h1 { color: darkorange; font-family: myfont; font-size: 2.2em; }
+footer { height: 3em; background-color: maroon; position: absolute; bottom: 0; }
 
-nav { font-size: 1.5em; }
+html { background-color: lightslategrey; height: 100%; }
 
-img { box-shadow: 10px 10px 5px hotpink; }
+body { background-color: black; color: turquoise; font-family: 'Anonymous Pro', monospace; font-size: 100%; min-height: 100%; position: relative; padding-bottom: 3em; margin-bottom: -3em; }
+
+h1 { color: salmon; font-family: myfont; font-size: 2.2em; }
+
+div { background-color: royalblue; }
+
+img { box-shadow: .5em .5em slateblue; }
+
+img.footerimg { background-color: steelblue; position: absolute; height: 100%; box-shadow: none; }
+
+a { text-decoration: none; }
 
 a:link:not(.current) { color: white; }
 
@@ -18,6 +28,6 @@ a:visited:not(.current) { color: white; }
 
 a:hover:not(.current) { color: gold; }
 
-a:active:not(.current) { color: red; }
+a:active:not(.current) { color: crimson; }
 
 /*# sourceMappingURL=styles.css.map */

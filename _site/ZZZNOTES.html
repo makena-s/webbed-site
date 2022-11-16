@@ -9,7 +9,6 @@
     <link rel="icon" type="image/x-icon" href="/webbed-site/assets/images/favicon-96.png"> <!-- favicon -->
     <link rel="stylesheet" href="/webbed-site/assets/css/styles.css"> <!-- /_site's static site css -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   </head>
 
   <body>
@@ -75,6 +74,7 @@
           </tbody>
         </table>
       </li>
+      <li>(i think the only /webbed-site is in main.scss custom font import)</li>
     </ul>
   </li>
 </ul>
@@ -161,7 +161,7 @@
   </li>
   <li>css selectors https://www.w3schools.com/cssref/css_selectors.php
     <ul>
-      <li>a:link:not(.current) {} does not select elements with the “current” class</li>
+      <li>a:link:not(.current) {} selects elements besides those with the “current” class</li>
       <li>:last-child selects last child of parent (ex: last p in body)</li>
     </ul>
   </li>
@@ -174,10 +174,19 @@
   <li>
     <h2 id="display-the-most-important-css-property-for-layout">display: the most important css property for layout</h2>
   </li>
-  <li>font size: em allows users to resize text in browser menu
+  <li>position: choose value then move with top/right/bottom/left properties
+    <ol>
+      <li>static: default, not affected by properties, normal page flow (won’t overlap)</li>
+      <li>relative: can be moved relative to its normal position</li>
+      <li>fixed: relative to viewport, doesn’t move when scrolled</li>
+      <li>absolute: can be moved relative to its nearest positioned ancestor (the box it’s in), outside normal page flow</li>
+      <li>sticky: toggles between relative and fixed depending on scroll position</li>
+    </ol>
+  </li>
+  <li>font size: em is a relative unit that allows users to resize text in browser menu
     <ul>
       <li>1em = current font size, browser default is 16px</li>
-      <li>set default size (100%) in body and use em to change other elements</li>
+      <li>w3schools rec: set default size (100%) in body and use em to change other elements</li>
     </ul>
   </li>
 </ul>
@@ -249,20 +258,28 @@
     </ul>
   </li>
   <li>
-    <nav> is its own thing, most navs (vertical and horizontal) seem to use ul's or div class="sidebar"
-
-</nav>
+    <nav> is the same as <div>, most navs (vertical and horizontal) seem to use ul's or div class="sidebar"
+</div></nav>
   </li>
+  <li>footer is currently pushed down 1 screen size, so it’s not visible upon load</li>
 </ul>
+
 <h3 id="bonus-notes">BONUS NOTES</h3>
 <ul>
   <li>if this is your first site, bundle add webrick before testing site locally</li>
   <li>info on filtering collection items https://jekyllrb.com/docs/step-by-step/09-collections/</li>
   <li>filter that allows liquid in front matter https://github.com/gemfarmer/jekyll-liquify</li>
   <li>sass nesting https://www.w3schools.com/sass/sass_nesting.asp</li>
+  <li>sass numberics, ex: random https://www.w3schools.com/sass/sass_functions_numeric.php</li>
   <li>css image gallery https://www.w3schools.com/csS/css_image_gallery.asp</li>
+  <li>referenced for footer at bottom of page https://stackoverflow.com/questions/18469262/position-footer-at-bottom-of-page-having-fixed-header</li>
 </ul>
 
+
+    <!-- footer source code -->
+<footer>
+  elegant footer <img src="/webbed-site/assets/images/doggif.gif" alt="dog gif" class="footerimg">
+</footer>
 
   </body>
 
