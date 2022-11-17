@@ -8,7 +8,7 @@ nav a { display: block; text-decoration: none; }
 
 nav a.current { color: limegreen; }
 
-footer { height: 3em; background-color: darkolivegreen; position: absolute; bottom: 0em; }
+footer { background-color: darkolivegreen; height: 3em; position: absolute; bottom: 0em; }
 
 footer img { background-color: steelblue; position: absolute; height: 100%; box-shadow: none; }
 
@@ -16,17 +16,21 @@ html { background-color: lightslategrey; font-size: 125%; height: 100%; }
 
 body { background-color: black; color: turquoise; font-family: 'Anonymous Pro', monospace; min-height: 100%; position: relative; padding-bottom: 3em; margin-bottom: -3em; }
 
+div.content { background-color: maroon; margin-left: 200px; height: 100%; }
+
+div { background-color: yellow; }
+
+p { background-color: yellow; margin: 0em; }
+
+ul { margin: 0em; }
+
 h1 { background-color: royalblue; color: salmon; font-family: myfont; font-size: 2em; margin: 0em; }
 
 h2, h3, h4, h5, h6 { margin: 0em; }
 
-div { background-color: maroon; }
+img { margin: 20em; vertical-align: bottom; }
 
-div.content { margin-left: 200px; height: 100%; }
-
-p { margin: 0em; }
-
-img { box-shadow: .5em .5em slateblue; }
+a { background-color: darkgrey; }
 
 a:link:not(.current) { color: white; }
 

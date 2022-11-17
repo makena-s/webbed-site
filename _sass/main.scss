@@ -8,15 +8,28 @@
   src: url(/webbed-site/assets/fonts/fullfont.ttf); // requires leading /, does not accept site.baseurl
 }
 
-// SET SASS VARIABLES /////////////////////////////////////////////////////////////////////////////
+// LIST OF CLASSES /////////////////////////////////////////////////////////////////////////////
+// current, content
+
+// SET SCSS VARIABLES /////////////////////////////////////////////////////////////////////////////
 $footerheight: 3em;
 $sidebarwidth: 200px;
-// LIST OF CLASSES
-// current, content
+
+// SCSS FUNCTION TO TOGGLE BACKGROUND COLORS ON OR OFF (I'M A GENIUS) //////////////////////////////////////////
+$colortoggle: true;
+// $colortoggle: false;
+
+@mixin replace-bgcolor($localcolor, $colortoggle) {
+  @if $colortoggle {
+    background-color: $localcolor; // use given color when toggle is on
+  } @else {
+    background-color: transparent; // default color when toggle is off
+  }
+}
 
 // NAVIGATION + FOOTER /////////////////////////////////////////////////////////////////////////////
 nav { // topnav and sidenav
-  background-color: slateblue;
+  @include replace-bgcolor(slateblue, $colortoggle);
   font-size: 1.3em;
   width: $sidebarwidth;
   position: fixed;
@@ -31,12 +44,12 @@ nav { // topnav and sidenav
   }
 }
 footer {
+  @include replace-bgcolor(darkolivegreen, $colortoggle);
   height: $footerheight;
-  background-color: darkolivegreen;
   position: absolute;
   bottom: 0em; // at bottom of container
   img {
-    background-color: steelblue;
+    @include replace-bgcolor(steelblue, $colortoggle);
     position: absolute;
     height: 100%;
     box-shadow: none;
@@ -45,13 +58,13 @@ footer {
 
 // PAGE CSS /////////////////////////////////////////////////////////////////////////////
 html {
-  background-color: lightslategrey;
+  @include replace-bgcolor(lightslategrey, $colortoggle);
   font-size: 125%; // sets base size for em to use
   // footer adjustments
   height: 100%; // base for other adjustments
 }
 body {
-  background-color: black;
+  background-color: black; // cannot be toggled
   color: turquoise;
   font-family: 'Anonymous Pro', monospace;
   // footer adjustments
@@ -60,8 +73,23 @@ body {
   padding-bottom: $footerheight; // prevent content/footer overlap
   margin-bottom: -$footerheight; // bring bottom of page up to footer
 }
+div.content { // everything besides sidebar
+  @include replace-bgcolor(maroon, $colortoggle);
+  margin-left: $sidebarwidth;
+  height: 100%;
+}
+div {
+  @include replace-bgcolor(yellow, $colortoggle); // does not show up with normal markdown
+}
+p {
+  @include replace-bgcolor(yellow, $colortoggle);
+  margin: 0em; // markdown turns lines (including images) into p
+}
+ul {
+  margin: 0em; // for markdown again
+}
 h1 {
-  background-color: royalblue;
+  @include replace-bgcolor(royalblue, $colortoggle);
   color: salmon;
   font-family: myfont;
   font-size: 2em;
@@ -70,24 +98,16 @@ h1 {
 h2, h3, h4, h5, h6 {
   margin: 0em;
 }
-div {
-  background-color: maroon;
-}
-div.content { // everything besides sidebar
-  margin-left: $sidebarwidth;
-  height: 100%;
-}
-p {
-  margin: 0em; // markdown turns normal text into p
-  // background-color: yellow;
-}
 img {
-  box-shadow: .5em .5em slateblue;
+  //box-shadow: .5em .5em slateblue;
+  margin: 20em;
+  vertical-align: bottom;
+  // display: block;
 }
 
 // LINKS + EXCLUDING LINKS WITH "CURRENT" CLASS /////////////////////////////////////////////////////////////////////////////
 a {
-  // background-color: silver;
+  @include replace-bgcolor(darkgrey, $colortoggle);
   // text-decoration: none;
 }
 a:link:not(.current) { // unvisited

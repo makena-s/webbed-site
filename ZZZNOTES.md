@@ -58,7 +58,7 @@ title: zzznotes
   - text-shadow for text, box-shadow for elements
   - filter: drop-shadow(1px 1px 1px orange)
 - display: the most important css property for layout
-  -
+  - a
 - position: choose value then move with top/right/bottom/left properties
   1. static: default, not affected by properties, normal page flow (won't overlap)
   2. relative: can be moved relative to its normal position
@@ -100,7 +100,7 @@ title: zzznotes
 - layout inheritance: a layout can be wrapped in another layout
 - {{ content }}: object used in layouts, a special variable that returns the rendered content of the page the layout is called on
 - {% include name.html %}: tag used in layouts, includes content from files in _includes
-- sass: css extension used by jekyll, supports variables, nesting, operators, etc.
+- sass/scss: css extension used by jekyll, supports variables, nesting, operators, etc.
 - collection: group of documents, similar to a jekyll blog of posts but not organized by date (can be selected by config defaults)
 - document: item in a collection
 
@@ -109,14 +109,21 @@ title: zzznotes
 - index: landing page with main menu
 - topic menus: school + mobile projects, twine, html/css/js showcase, code templates and cheatsheets, coding resources
   - sort projects by class/type of code? p3, p5js, etc. with short explanations of each
-- <nav> is the same as <div>, most navs (vertical and horizontal) seem to use ul's or div class="sidebar"
+- nav is the same as div, most navs (vertical and horizontal) seem to use ul's or div class="sidebar"
 - footer is currently pushed down 1 screen size, so it's not visible upon load
   - footerimg doesn't show up in the correct place on mobile
-- can't use $sidebarwidth to set content margin-left because the em's are based on different local font sizes
+
+### DISCOVERIES / PROBLEMS SOLVED
+- can't use $sidebarwidth to set content margin-left because the em's are based on different local font sizes, just use px
 - sass can nest normal selectors (nav{ ul{} li{} }) and same prefix (font:{ family:; size:; })
   - but not .classes or a:selectors
 - strange top gap was caused by header/paragraph/etc. margins
-- when starting css, make sure to include a long page, it catches so many problems  
+- when starting css, make sure to include a long page, it catches so many problems
+- small gap under img is because img is inline, it's treated as text and sits on baseline
+  - common fixes: display block, vertical-align bottom, container line-height 0%
+- localhost bugs
+  - sometimes command line does not auto refresh, ctrl+c to wake it up
+  - my css changes are not showing up in inspector, "style sheet could not be loaded"
 
 ### BONUS NOTES
 - if this is your first site, bundle add webrick before testing site locally

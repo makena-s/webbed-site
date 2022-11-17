@@ -162,8 +162,10 @@
       <li>filter: drop-shadow(1px 1px 1px orange)</li>
     </ul>
   </li>
-  <li>
-    <h2 id="display-the-most-important-css-property-for-layout">display: the most important css property for layout</h2>
+  <li>display: the most important css property for layout
+    <ul>
+      <li>a</li>
+    </ul>
   </li>
   <li>position: choose value then move with top/right/bottom/left properties
     <ol>
@@ -234,7 +236,7 @@
   <li>layout inheritance: a layout can be wrapped in another layout</li>
   <li>{{ content }}: object used in layouts, a special variable that returns the rendered content of the page the layout is called on</li>
   <li>{% include name.html %}: tag used in layouts, includes content from files in _includes</li>
-  <li>sass: css extension used by jekyll, supports variables, nesting, operators, etc.</li>
+  <li>sass/scss: css extension used by jekyll, supports variables, nesting, operators, etc.</li>
   <li>collection: group of documents, similar to a jekyll blog of posts but not organized by date (can be selected by config defaults)</li>
   <li>document: item in a collection</li>
 </ul>
@@ -248,16 +250,17 @@
       <li>sort projects by class/type of code? p3, p5js, etc. with short explanations of each</li>
     </ul>
   </li>
-  <li>
-    <nav> is the same as <div>, most navs (vertical and horizontal) seem to use ul's or div class="sidebar"
-</div></nav>
-  </li>
+  <li>nav is the same as div, most navs (vertical and horizontal) seem to use ul’s or div class=”sidebar”</li>
   <li>footer is currently pushed down 1 screen size, so it’s not visible upon load
     <ul>
       <li>footerimg doesn’t show up in the correct place on mobile</li>
     </ul>
   </li>
-  <li>can’t use $sidebarwidth to set content margin-left because the em’s are based on different local font sizes</li>
+</ul>
+
+<h3 id="discoveries--problems-solved">DISCOVERIES / PROBLEMS SOLVED</h3>
+<ul>
+  <li>can’t use $sidebarwidth to set content margin-left because the em’s are based on different local font sizes, just use px</li>
   <li>sass can nest normal selectors (nav{ ul{} li{} }) and same prefix (font:{ family:; size:; })
     <ul>
       <li>but not .classes or a:selectors</li>
@@ -265,6 +268,17 @@
   </li>
   <li>strange top gap was caused by header/paragraph/etc. margins</li>
   <li>when starting css, make sure to include a long page, it catches so many problems</li>
+  <li>small gap under img is because img is inline, it’s treated as text and sits on baseline
+    <ul>
+      <li>common fixes: display block, vertical-align bottom, container line-height 0%</li>
+    </ul>
+  </li>
+  <li>localhost bugs
+    <ul>
+      <li>sometimes command line does not auto refresh, ctrl+c to wake it up</li>
+      <li>my css changes are not showing up in inspector, “style sheet could not be loaded”</li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="bonus-notes">BONUS NOTES</h3>
