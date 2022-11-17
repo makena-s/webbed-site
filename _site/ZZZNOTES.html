@@ -12,46 +12,37 @@
   </head>
 
   <body>
-    <!-- top navigation bar source code -->
+    <!-- {% include topnav.html %} -->
+    <!-- {% include sidenav.html %} -->
+    <!-- side navigation bar source code -->
 <nav>
   
-    <!-- relative_url filter prepends baseurl  -->
-    <!-- "current" class does not work if filenames have spaces -->
     <a href="/webbed-site/" >
       home
     </a>
-    <br>
   
-    <!-- relative_url filter prepends baseurl  -->
-    <!-- "current" class does not work if filenames have spaces -->
     <a href="/webbed-site/about.html" >
       about
     </a>
-    <br>
   
-    <!-- relative_url filter prepends baseurl  -->
-    <!-- "current" class does not work if filenames have spaces -->
     <a href="/webbed-site/coolpages.html" >
       coolpages
     </a>
-    <br>
   
-    <!-- relative_url filter prepends baseurl  -->
-    <!-- "current" class does not work if filenames have spaces -->
     <a href="/webbed-site/ZZZNOTES.html" class="current">
       zzznotes
     </a>
-    <br>
   
 </nav>
 
-    <p><!-- prevents code from being read --></p>
+    <div class="content"> <!-- everything besides sidenav -->
+      <p><!-- prevents code from being read --></p>
 
 <h3 id="project-info">PROJECT INFO</h3>
 <ul>
   <li>attempt #3: followed jekyll tutorial again https://jekyllrb.com/docs/step-by-step/01-setup/, satisfying success B^)</li>
   <li>no posts or production build, just normal and collection pages</li>
-  <li>no spaces in filenames (breaks navigation highlighting)</li>
+  <li>no spaces in filenames (standard practice + breaks navigation highlighting)</li>
   <li>use relative_url filter instead of site.baseurl, fewer moving parts
     <ul>
       <li>
@@ -261,7 +252,19 @@
     <nav> is the same as <div>, most navs (vertical and horizontal) seem to use ul's or div class="sidebar"
 </div></nav>
   </li>
-  <li>footer is currently pushed down 1 screen size, so it’s not visible upon load</li>
+  <li>footer is currently pushed down 1 screen size, so it’s not visible upon load
+    <ul>
+      <li>footerimg doesn’t show up in the correct place on mobile</li>
+    </ul>
+  </li>
+  <li>can’t use $sidebarwidth to set content margin-left because the em’s are based on different local font sizes</li>
+  <li>sass can nest normal selectors (nav{ ul{} li{} }) and same prefix (font:{ family:; size:; })
+    <ul>
+      <li>but not .classes or a:selectors</li>
+    </ul>
+  </li>
+  <li>strange top gap was caused by header/paragraph/etc. margins</li>
+  <li>when starting css, make sure to include a long page, it catches so many problems</li>
 </ul>
 
 <h3 id="bonus-notes">BONUS NOTES</h3>
@@ -276,10 +279,12 @@
 </ul>
 
 
-    <!-- footer source code -->
+      <!-- footer source code -->
 <footer>
-  elegant footer <img src="/webbed-site/assets/images/doggif.gif" alt="dog gif" class="footerimg">
+  elegant footer <img src="/webbed-site/assets/images/doggif.gif" alt="dog gif">
 </footer>
+
+    </div>
 
   </body>
 

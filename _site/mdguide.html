@@ -12,40 +12,31 @@
   </head>
 
   <body>
-    <!-- top navigation bar source code -->
+    <!-- {% include topnav.html %} -->
+    <!-- {% include sidenav.html %} -->
+    <!-- side navigation bar source code -->
 <nav>
   
-    <!-- relative_url filter prepends baseurl  -->
-    <!-- "current" class does not work if filenames have spaces -->
     <a href="/webbed-site/" >
       home
     </a>
-    <br>
   
-    <!-- relative_url filter prepends baseurl  -->
-    <!-- "current" class does not work if filenames have spaces -->
     <a href="/webbed-site/about.html" >
       about
     </a>
-    <br>
   
-    <!-- relative_url filter prepends baseurl  -->
-    <!-- "current" class does not work if filenames have spaces -->
     <a href="/webbed-site/coolpages.html" >
       coolpages
     </a>
-    <br>
   
-    <!-- relative_url filter prepends baseurl  -->
-    <!-- "current" class does not work if filenames have spaces -->
     <a href="/webbed-site/ZZZNOTES.html" >
       zzznotes
     </a>
-    <br>
   
 </nav>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <div class="content"> <!-- everything besides sidenav -->
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 testpage content
 
 markdown info
@@ -94,10 +85,12 @@ lots of code
 <pre><code class="language-`">
 </code></pre>
 
-    <!-- footer source code -->
+      <!-- footer source code -->
 <footer>
-  elegant footer <img src="/webbed-site/assets/images/doggif.gif" alt="dog gif" class="footerimg">
+  elegant footer <img src="/webbed-site/assets/images/doggif.gif" alt="dog gif">
 </footer>
+
+    </div>
 
   </body>
 

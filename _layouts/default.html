@@ -14,9 +14,14 @@
   </head>
 
   <body>
-    {% include topnav.html %}
-    {{ content }}
-    {% include footer.html %}
+    <!-- {% raw %}{% include topnav.html %}{% endraw %} -->
+    <!-- {% raw %}{% include sidenav.html %}{% endraw %} -->
+    {% include sidenav.html %}
+    <div class="content"> <!-- everything besides sidenav -->
+      {{ content }}
+      {% include footer.html %}
+    </div>
+
   </body>
 
 </html>

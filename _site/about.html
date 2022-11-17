@@ -12,47 +12,40 @@
   </head>
 
   <body>
-    <!-- top navigation bar source code -->
+    <!-- {% include topnav.html %} -->
+    <!-- {% include sidenav.html %} -->
+    <!-- side navigation bar source code -->
 <nav>
   
-    <!-- relative_url filter prepends baseurl  -->
-    <!-- "current" class does not work if filenames have spaces -->
     <a href="/webbed-site/" >
       home
     </a>
-    <br>
   
-    <!-- relative_url filter prepends baseurl  -->
-    <!-- "current" class does not work if filenames have spaces -->
     <a href="/webbed-site/about.html" class="current">
       about
     </a>
-    <br>
   
-    <!-- relative_url filter prepends baseurl  -->
-    <!-- "current" class does not work if filenames have spaces -->
     <a href="/webbed-site/coolpages.html" >
       coolpages
     </a>
-    <br>
   
-    <!-- relative_url filter prepends baseurl  -->
-    <!-- "current" class does not work if filenames have spaces -->
     <a href="/webbed-site/ZZZNOTES.html" >
       zzznotes
     </a>
-    <br>
   
 </nav>
 
-    <h1 id="about">about</h1>
+    <div class="content"> <!-- everything besides sidenav -->
+      <h1 id="about">about</h1>
 
 <p>description here ⭐ description here</p>
 
-    <!-- footer source code -->
+      <!-- footer source code -->
 <footer>
-  elegant footer <img src="/webbed-site/assets/images/doggif.gif" alt="dog gif" class="footerimg">
+  elegant footer <img src="/webbed-site/assets/images/doggif.gif" alt="dog gif">
 </footer>
+
+    </div>
 
   </body>
 

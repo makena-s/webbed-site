@@ -2,25 +2,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap");
 @font-face { font-family: myfont; src: url(/webbed-site/assets/fonts/fullfont.ttf); }
 
-nav { background-color: slateblue; font-size: 1.5em; width: 10em; }
+nav { background-color: slateblue; font-size: 1.3em; width: 200px; position: fixed; height: 100%; overflow: auto; }
 
-a.current { color: limegreen; }
+nav a { display: block; text-decoration: none; }
 
-footer { height: 3em; background-color: maroon; position: absolute; bottom: 0; }
+nav a.current { color: limegreen; }
 
-html { background-color: lightslategrey; height: 100%; }
+footer { height: 3em; background-color: darkolivegreen; position: absolute; bottom: 0em; }
 
-body { background-color: black; color: turquoise; font-family: 'Anonymous Pro', monospace; font-size: 100%; min-height: 100%; position: relative; padding-bottom: 3em; margin-bottom: -3em; }
+footer img { background-color: steelblue; position: absolute; height: 100%; box-shadow: none; }
 
-h1 { color: salmon; font-family: myfont; font-size: 2.2em; }
+html { background-color: lightslategrey; font-size: 125%; height: 100%; }
 
-div { background-color: royalblue; }
+body { background-color: black; color: turquoise; font-family: 'Anonymous Pro', monospace; min-height: 100%; position: relative; padding-bottom: 3em; margin-bottom: -3em; }
+
+h1 { background-color: royalblue; color: salmon; font-family: myfont; font-size: 2em; margin: 0em; }
+
+h2, h3, h4, h5, h6 { margin: 0em; }
+
+div { background-color: maroon; }
+
+div.content { margin-left: 200px; height: 100%; }
+
+p { margin: 0em; }
 
 img { box-shadow: .5em .5em slateblue; }
-
-img.footerimg { background-color: steelblue; position: absolute; height: 100%; box-shadow: none; }
-
-a { text-decoration: none; }
 
 a:link:not(.current) { color: white; }
 

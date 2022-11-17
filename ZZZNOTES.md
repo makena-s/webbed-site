@@ -7,7 +7,7 @@ title: zzznotes
 ### PROJECT INFO
 - attempt #3: followed jekyll tutorial again https://jekyllrb.com/docs/step-by-step/01-setup/, satisfying success B^)
 - no posts or production build, just normal and collection pages
-- no spaces in filenames (breaks navigation highlighting)
+- no spaces in filenames (standard practice + breaks navigation highlighting)
 - use relative_url filter instead of site.baseurl, fewer moving parts
   - {{ "/about.html" | relative_url }}
   - [description]({{ '/about.html' | relative_url }})
@@ -111,6 +111,12 @@ title: zzznotes
   - sort projects by class/type of code? p3, p5js, etc. with short explanations of each
 - <nav> is the same as <div>, most navs (vertical and horizontal) seem to use ul's or div class="sidebar"
 - footer is currently pushed down 1 screen size, so it's not visible upon load
+  - footerimg doesn't show up in the correct place on mobile
+- can't use $sidebarwidth to set content margin-left because the em's are based on different local font sizes
+- sass can nest normal selectors (nav{ ul{} li{} }) and same prefix (font:{ family:; size:; })
+  - but not .classes or a:selectors
+- strange top gap was caused by header/paragraph/etc. margins
+- when starting css, make sure to include a long page, it catches so many problems  
 
 ### BONUS NOTES
 - if this is your first site, bundle add webrick before testing site locally
