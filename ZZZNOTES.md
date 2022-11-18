@@ -110,8 +110,13 @@ title: zzznotes
 - topic menus: school + mobile projects, twine, html/css/js showcase, code templates and cheatsheets, coding resources
   - sort projects by class/type of code? p3, p5js, etc. with short explanations of each
 - nav is the same as div, most navs (vertical and horizontal) seem to use ul's or div class="sidebar"
+  - can show/hide with display:none (maybe more popular?) or width:0px
 - footer is currently pushed down 1 screen size, so it's not visible upon load
   - footerimg doesn't show up in the correct place on mobile
+- trying to figure out how to test on mobile
+- CURRENT
+  - working on overlay to close sidebar menu
+  - can't transfer scss variable $sidebarwidth to js open/close functions
 
 ### DISCOVERIES / PROBLEMS SOLVED
 - can't use $sidebarwidth to set content margin-left because the em's are based on different local font sizes, just use px
@@ -123,7 +128,9 @@ title: zzznotes
   - common fixes: display block, vertical-align bottom, container line-height 0%
 - localhost bugs
   - sometimes command line does not auto refresh, ctrl+c to wake it up
-  - my css changes are not showing up in inspector, "style sheet could not be loaded"
+  - if css changes are not showing up, ctrl + f5 to force reload, clearing cache and downloading latest version from server
+  - (ctrl + shift + r may do same thing)
+- css class styling showing up in inspector html but not in element css was caused by misplaced css {}'s
 
 ### BONUS NOTES
 - if this is your first site, bundle add webrick before testing site locally

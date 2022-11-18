@@ -11,13 +11,34 @@
     <link rel="icon" type="image/x-icon" href="{{ "/assets/images/favicon-96.png" | relative_url }}"> <!-- favicon -->
     <link rel="stylesheet" href="{{ "/assets/css/styles.css" | relative_url }}"> <!-- /_site's static site css -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+      console.log("HEWWO? COMPUTER?");
+      // open and close sidebar
+      function opennav() {
+        document.querySelector("nav").style.width = "200px"; // selects first element in doc with specified css selector
+        document.querySelector("div.content").style.marginLeft = "200px";
+        document.querySelector(".w3-overlay").style.display = "block";
+        console.log("OPENNAV");
+      }
+      function closenav() {
+        // document.querySelectorAll("*:not([nav])").style.width = "100%";
+        document.querySelector("nav").style.width = "0px";
+        document.querySelector("div.content").style.marginLeft = "0px";
+        document.querySelector(".w3-overlay").style.display = "none";
+        console.log("CLOSENAV");
+      }
+    </script>
   </head>
 
   <body>
+
     <!-- {% raw %}{% include topnav.html %}{% endraw %} -->
     <!-- {% raw %}{% include sidenav.html %}{% endraw %} -->
     {% include sidenav.html %}
+
     <div class="content"> <!-- everything besides sidenav -->
+      <div class="w3-overlay" onclick="closenav()" style="cursor:pointer"></div>
+      <img src="{{ '/assets/images/favicon-96.png' | relative_url }}" alt="dog" class="navbutton" onclick="opennav()">
       {{ content }}
       {% include footer.html %}
     </div>

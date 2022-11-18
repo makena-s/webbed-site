@@ -9,13 +9,32 @@
     <link rel="icon" type="image/x-icon" href="/webbed-site/assets/images/favicon-96.png"> <!-- favicon -->
     <link rel="stylesheet" href="/webbed-site/assets/css/styles.css"> <!-- /_site's static site css -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+      console.log("HEWWO? COMPUTER?");
+      // open and close sidebar
+      function opennav() {
+        document.querySelector("nav").style.width = "200px"; // selects first element in doc with specified css selector
+        document.querySelector("div.content").style.marginLeft = "200px";
+        document.querySelector(".w3-overlay").style.display = "block";
+        console.log("OPENNAV");
+      }
+      function closenav() {
+        // document.querySelectorAll("*:not([nav])").style.width = "100%";
+        document.querySelector("nav").style.width = "0px";
+        document.querySelector("div.content").style.marginLeft = "0px";
+        document.querySelector(".w3-overlay").style.display = "none";
+        console.log("CLOSENAV");
+      }
+    </script>
   </head>
 
   <body>
+
     <!-- {% include topnav.html %} -->
     <!-- {% include sidenav.html %} -->
     <!-- side navigation bar source code -->
 <nav>
+  <img src="/webbed-site/assets/images/favicon-96.png" alt="dog" class="navbutton" onclick="closenav()">
   
     <a href="/webbed-site/" >
       home
@@ -35,7 +54,10 @@
   
 </nav>
 
+
     <div class="content"> <!-- everything besides sidenav -->
+      <div class="w3-overlay" onclick="closenav()" style="cursor:pointer"></div>
+      <img src="/webbed-site/assets/images/favicon-96.png" alt="dog" class="navbutton" onclick="opennav()">
       <p><!-- prevents code from being read --></p>
 
 <h3 id="project-info">PROJECT INFO</h3>
@@ -250,10 +272,21 @@
       <li>sort projects by class/type of code? p3, p5js, etc. with short explanations of each</li>
     </ul>
   </li>
-  <li>nav is the same as div, most navs (vertical and horizontal) seem to use ul’s or div class=”sidebar”</li>
+  <li>nav is the same as div, most navs (vertical and horizontal) seem to use ul’s or div class=”sidebar”
+    <ul>
+      <li>can show/hide with display:none (maybe more popular?) or width:0px</li>
+    </ul>
+  </li>
   <li>footer is currently pushed down 1 screen size, so it’s not visible upon load
     <ul>
       <li>footerimg doesn’t show up in the correct place on mobile</li>
+    </ul>
+  </li>
+  <li>trying to figure out how to test on mobile</li>
+  <li>CURRENT
+    <ul>
+      <li>working on overlay to close sidebar menu</li>
+      <li>can’t transfer scss variable $sidebarwidth to js open/close functions</li>
     </ul>
   </li>
 </ul>
@@ -276,9 +309,11 @@
   <li>localhost bugs
     <ul>
       <li>sometimes command line does not auto refresh, ctrl+c to wake it up</li>
-      <li>my css changes are not showing up in inspector, “style sheet could not be loaded”</li>
+      <li>if css changes are not showing up, ctrl + f5 to force reload, clearing cache and downloading latest version from server</li>
+      <li>(ctrl + shift + r may do same thing)</li>
     </ul>
   </li>
+  <li>css class styling showing up in inspector html but not in element css was caused by misplaced css {}’s</li>
 </ul>
 
 <h3 id="bonus-notes">BONUS NOTES</h3>

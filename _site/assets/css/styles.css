@@ -8,6 +8,10 @@ nav a { display: block; text-decoration: none; }
 
 nav a.current { color: limegreen; }
 
+.navbutton { background-color: hotpink; width: 50px; height: 50px; filter: invert(100%); border-radius: 50%; }
+
+.w3-overlay { position: fixed; display: none; width: 100%; height: 100%; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 2; }
+
 footer { background-color: darkolivegreen; height: 3em; position: absolute; bottom: 0em; }
 
 footer img { background-color: steelblue; position: absolute; height: 100%; box-shadow: none; }
@@ -28,7 +32,7 @@ h1 { background-color: royalblue; color: salmon; font-family: myfont; font-size:
 
 h2, h3, h4, h5, h6 { margin: 0em; }
 
-img { margin: 20em; vertical-align: bottom; }
+img { margin: 0em; vertical-align: bottom; }
 
 a { background-color: darkgrey; }
 

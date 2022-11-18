@@ -9,13 +9,32 @@
     <link rel="icon" type="image/x-icon" href="/webbed-site/assets/images/favicon-96.png"> <!-- favicon -->
     <link rel="stylesheet" href="/webbed-site/assets/css/styles.css"> <!-- /_site's static site css -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+      console.log("HEWWO? COMPUTER?");
+      // open and close sidebar
+      function opennav() {
+        document.querySelector("nav").style.width = "200px"; // selects first element in doc with specified css selector
+        document.querySelector("div.content").style.marginLeft = "200px";
+        document.querySelector(".w3-overlay").style.display = "block";
+        console.log("OPENNAV");
+      }
+      function closenav() {
+        // document.querySelectorAll("*:not([nav])").style.width = "100%";
+        document.querySelector("nav").style.width = "0px";
+        document.querySelector("div.content").style.marginLeft = "0px";
+        document.querySelector(".w3-overlay").style.display = "none";
+        console.log("CLOSENAV");
+      }
+    </script>
   </head>
 
   <body>
+
     <!-- {% include topnav.html %} -->
     <!-- {% include sidenav.html %} -->
     <!-- side navigation bar source code -->
 <nav>
+  <img src="/webbed-site/assets/images/favicon-96.png" alt="dog" class="navbutton" onclick="closenav()">
   
     <a href="/webbed-site/" class="current">
       home
@@ -35,10 +54,13 @@
   
 </nav>
 
+
     <div class="content"> <!-- everything besides sidenav -->
+      <div class="w3-overlay" onclick="closenav()" style="cursor:pointer"></div>
+      <img src="/webbed-site/assets/images/favicon-96.png" alt="dog" class="navbutton" onclick="opennav()">
       <h1 id="goot-morning">goot morning!</h1>
 
-<p><img src="/webbed-site/assets/images/favicon-96.png" alt="favicon" /></p>
+<p><img src="/webbed-site/assets/images/favicon-96.png" alt="favicon" /><img src="/webbed-site/assets/images/favicon-96.png" alt="favicon" /></p>
 
 <h2 id="goot-morning-1">goot morning!</h2>
 <p><img src="/webbed-site/assets/images/favicon-96.png" alt="favicon" /></p>
