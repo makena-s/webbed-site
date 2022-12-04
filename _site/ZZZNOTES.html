@@ -13,16 +13,18 @@
       console.log("HEWWO? COMPUTER?");
       // open and close sidebar
       function opennav() {
-        document.querySelector("nav").style.width = "200px"; // selects first element in doc with specified css selector
-        document.querySelector("div.content").style.marginLeft = "200px";
+        document.querySelector("nav").style.display = "block"; // selects first element in doc with specified css selector
+        document.querySelector("div.content").style.marginLeft = "200px"; // does not support variables such as $sidebarwidth
         document.querySelector(".w3-overlay").style.display = "block";
+        document.querySelector("div.topbar").style.display = "none";
         console.log("OPENNAV");
       }
       function closenav() {
         // document.querySelectorAll("*:not([nav])").style.width = "100%";
-        document.querySelector("nav").style.width = "0px";
+        document.querySelector("nav").style.display = "none";
         document.querySelector("div.content").style.marginLeft = "0px";
         document.querySelector(".w3-overlay").style.display = "none";
+        document.querySelector("div.topbar").style.display = "block";
         console.log("CLOSENAV");
       }
     </script>
@@ -30,11 +32,9 @@
 
   <body>
 
-    <!-- {% include topnav.html %} -->
-    <!-- {% include sidenav.html %} -->
     <!-- side navigation bar source code -->
 <nav>
-  <img src="/webbed-site/assets/images/favicon-96.png" alt="dog" class="navbutton" onclick="closenav()">
+  <!-- <img src="/webbed-site/assets/images/favicon-96.png" alt="dog" class="navbutton" onclick="closenav()"> -->
   
     <a href="/webbed-site/" >
       home
@@ -54,10 +54,14 @@
   
 </nav>
 
-
     <div class="content"> <!-- everything besides sidenav -->
-      <div class="w3-overlay" onclick="closenav()" style="cursor:pointer"></div>
-      <img src="/webbed-site/assets/images/favicon-96.png" alt="dog" class="navbutton" onclick="opennav()">
+      <div class="w3-overlay" onclick="closenav()" style="cursor:pointer"></div> <!-- hovering cursor = hand -->
+      <!-- top bar (for small screens) source code -->
+<div class="topbar">
+  <!-- <div onclick="opennav()" style="position:absolute; height: 100%; background-color:blue;">[ MENU ]</div> -->
+  <img src="/webbed-site/assets/images/favicon-96.png" alt="dog" class="navbutton" onclick="opennav()">
+</div>
+
       <p><!-- prevents code from being read --></p>
 
 <h3 id="project-info">PROJECT INFO</h3>
@@ -94,6 +98,7 @@
 
 <h3 id="test-site-locally">TEST SITE LOCALLY</h3>
 <ul>
+  <li>cd [project path]</li>
   <li>http://localhost:4000/webbed-site/</li>
   <li>bundle exec jekyll serve</li>
   <li>bundle exec jekyll serve –livereload</li>
@@ -186,7 +191,11 @@
   </li>
   <li>display: the most important css property for layout
     <ul>
-      <li>a</li>
+      <li>inline: default, height/width values do not apply</li>
+      <li>inline-block: inline, but height/width values do apply</li>
+      <li>block: starts on new line, takes up full width</li>
+      <li>none: element will be completely removed</li>
+      <li>inherit: inherits display property from parent</li>
     </ul>
   </li>
   <li>position: choose value then move with top/right/bottom/left properties
@@ -194,7 +203,7 @@
       <li>static: default, not affected by properties, normal page flow (won’t overlap)</li>
       <li>relative: can be moved relative to its normal position</li>
       <li>fixed: relative to viewport, doesn’t move when scrolled</li>
-      <li>absolute: can be moved relative to its nearest positioned ancestor (the box it’s in), outside normal page flow</li>
+      <li>absolute: can be moved relative to its containing box, outside normal page flow</li>
       <li>sticky: toggles between relative and fixed depending on scroll position</li>
     </ol>
   </li>
@@ -204,6 +213,9 @@
       <li>w3schools rec: set default size (100%) in body and use em to change other elements</li>
     </ul>
   </li>
+  <li>% vs em: % resizes with window width, em resizes with page zoom</li>
+  <li>z-index: element stacking order, higher # is in front</li>
+  <li>@media screen and (max-width: 700px) {}: styles will apply when screen width &lt;= 700px</li>
 </ul>
 
 <h3 id="data-locations">DATA LOCATIONS</h3>
@@ -277,16 +289,15 @@
       <li>can show/hide with display:none (maybe more popular?) or width:0px</li>
     </ul>
   </li>
-  <li>footer is currently pushed down 1 screen size, so it’s not visible upon load
-    <ul>
-      <li>footerimg doesn’t show up in the correct place on mobile</li>
-    </ul>
-  </li>
+  <li>footerimg doesn’t show up in the correct place on mobile</li>
   <li>trying to figure out how to test on mobile</li>
+  <li>
+    <p>sidebar display fixed with !important (unideal) (if you close sidebar then make screen big, sidebar will not show up again, same issue with with topbar)</p>
+  </li>
   <li>CURRENT
     <ul>
-      <li>working on overlay to close sidebar menu</li>
-      <li>can’t transfer scss variable $sidebarwidth to js open/close functions</li>
+      <li>perhaps make normal footer</li>
+      <li>clean up overlay</li>
     </ul>
   </li>
 </ul>
@@ -314,6 +325,9 @@
     </ul>
   </li>
   <li>css class styling showing up in inspector html but not in element css was caused by misplaced css {}’s</li>
+  <li>@media queries must go AFTER the styles they change, put at bottom of stylesheet</li>
+  <li>!important: will override all previous css styles, but don’t use unless absolutely necessary</li>
+  <li>footer padding needs to be in div.content, not body (caused footer to be pushed down 1 footerheight)</li>
 </ul>
 
 <h3 id="bonus-notes">BONUS NOTES</h3>
@@ -325,12 +339,13 @@
   <li>sass numberics, ex: random https://www.w3schools.com/sass/sass_functions_numeric.php</li>
   <li>css image gallery https://www.w3schools.com/csS/css_image_gallery.asp</li>
   <li>referenced for footer at bottom of page https://stackoverflow.com/questions/18469262/position-footer-at-bottom-of-page-having-fixed-header</li>
+  <li>big page of positioning? https://www.w3.org/TR/CSS2/visuren.html#position-props</li>
 </ul>
 
 
       <!-- footer source code -->
 <footer>
-  elegant footer <img src="/webbed-site/assets/images/doggif.gif" alt="dog gif">
+  <img src="/webbed-site/assets/images/doggif.gif" alt="dog gif">
 </footer>
 
     </div>

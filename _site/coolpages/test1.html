@@ -13,16 +13,18 @@
       console.log("HEWWO? COMPUTER?");
       // open and close sidebar
       function opennav() {
-        document.querySelector("nav").style.width = "200px"; // selects first element in doc with specified css selector
-        document.querySelector("div.content").style.marginLeft = "200px";
+        document.querySelector("nav").style.display = "block"; // selects first element in doc with specified css selector
+        document.querySelector("div.content").style.marginLeft = "200px"; // does not support variables such as $sidebarwidth
         document.querySelector(".w3-overlay").style.display = "block";
+        document.querySelector("div.topbar").style.display = "none";
         console.log("OPENNAV");
       }
       function closenav() {
         // document.querySelectorAll("*:not([nav])").style.width = "100%";
-        document.querySelector("nav").style.width = "0px";
+        document.querySelector("nav").style.display = "none";
         document.querySelector("div.content").style.marginLeft = "0px";
         document.querySelector(".w3-overlay").style.display = "none";
+        document.querySelector("div.topbar").style.display = "block";
         console.log("CLOSENAV");
       }
     </script>
@@ -30,11 +32,9 @@
 
   <body>
 
-    <!-- {% include topnav.html %} -->
-    <!-- {% include sidenav.html %} -->
     <!-- side navigation bar source code -->
 <nav>
-  <img src="/webbed-site/assets/images/favicon-96.png" alt="dog" class="navbutton" onclick="closenav()">
+  <!-- <img src="/webbed-site/assets/images/favicon-96.png" alt="dog" class="navbutton" onclick="closenav()"> -->
   
     <a href="/webbed-site/" >
       home
@@ -54,10 +54,14 @@
   
 </nav>
 
-
     <div class="content"> <!-- everything besides sidenav -->
-      <div class="w3-overlay" onclick="closenav()" style="cursor:pointer"></div>
-      <img src="/webbed-site/assets/images/favicon-96.png" alt="dog" class="navbutton" onclick="opennav()">
+      <div class="w3-overlay" onclick="closenav()" style="cursor:pointer"></div> <!-- hovering cursor = hand -->
+      <!-- top bar (for small screens) source code -->
+<div class="topbar">
+  <!-- <div onclick="opennav()" style="position:absolute; height: 100%; background-color:blue;">[ MENU ]</div> -->
+  <img src="/webbed-site/assets/images/favicon-96.png" alt="dog" class="navbutton" onclick="opennav()">
+</div>
+
       <!-- coolpage page template -->
 <h1>numbuh 1</h1>
 
@@ -66,7 +70,7 @@
 
       <!-- footer source code -->
 <footer>
-  elegant footer <img src="/webbed-site/assets/images/doggif.gif" alt="dog gif">
+  <img src="/webbed-site/assets/images/doggif.gif" alt="dog gif">
 </footer>
 
     </div>

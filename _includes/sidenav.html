@@ -1,6 +1,6 @@
 <!-- side navigation bar source code -->
 <nav>
-  <img src="{{ '/assets/images/favicon-96.png' | relative_url }}" alt="dog" class="navbutton" onclick="closenav()">
+  <!-- <img src="{{ '/assets/images/favicon-96.png' | relative_url }}" alt="dog" class="navbutton" onclick="closenav()"> -->
   {% for item in site.data.navigation %}
     <a href="{{ item.link | relative_url }}" {% if page.url == item.link %}class="current"{% endif %}>
       {{ item.name }}

@@ -14,6 +14,7 @@ title: zzznotes
   - (i think the only /webbed-site is in main.scss custom font import)
 
 ### TEST SITE LOCALLY
+- cd [project path]
 - http://localhost:4000/webbed-site/
 - bundle exec jekyll serve
 - bundle exec jekyll serve --livereload
@@ -58,16 +59,23 @@ title: zzznotes
   - text-shadow for text, box-shadow for elements
   - filter: drop-shadow(1px 1px 1px orange)
 - display: the most important css property for layout
-  - a
+  - inline: default, height/width values do not apply
+  - inline-block: inline, but height/width values do apply
+  - block: starts on new line, takes up full width
+  - none: element will be completely removed
+  - inherit: inherits display property from parent
 - position: choose value then move with top/right/bottom/left properties
   1. static: default, not affected by properties, normal page flow (won't overlap)
   2. relative: can be moved relative to its normal position
   3. fixed: relative to viewport, doesn't move when scrolled
-  4. absolute: can be moved relative to its nearest positioned ancestor (the box it's in), outside normal page flow
+  4. absolute: can be moved relative to its containing box, outside normal page flow
   5. sticky: toggles between relative and fixed depending on scroll position
 - font size: em is a relative unit that allows users to resize text in browser menu
   - 1em = current font size, browser default is 16px
   - w3schools rec: set default size (100%) in body and use em to change other elements
+- % vs em: % resizes with window width, em resizes with page zoom
+- z-index: element stacking order, higher # is in front
+- @media screen and (max-width: 700px) {}: styles will apply when screen width <= 700px
 
 ### DATA LOCATIONS
 - /_layouts: stores html page templates that can be used by other files
@@ -111,12 +119,13 @@ title: zzznotes
   - sort projects by class/type of code? p3, p5js, etc. with short explanations of each
 - nav is the same as div, most navs (vertical and horizontal) seem to use ul's or div class="sidebar"
   - can show/hide with display:none (maybe more popular?) or width:0px
-- footer is currently pushed down 1 screen size, so it's not visible upon load
-  - footerimg doesn't show up in the correct place on mobile
+- footerimg doesn't show up in the correct place on mobile
 - trying to figure out how to test on mobile
+- sidebar display fixed with !important (unideal) (if you close sidebar then make screen big, sidebar will not show up again, same issue with with topbar)
+
 - CURRENT
-  - working on overlay to close sidebar menu
-  - can't transfer scss variable $sidebarwidth to js open/close functions
+  - perhaps make normal footer
+  - clean up overlay
 
 ### DISCOVERIES / PROBLEMS SOLVED
 - can't use $sidebarwidth to set content margin-left because the em's are based on different local font sizes, just use px
@@ -131,6 +140,9 @@ title: zzznotes
   - if css changes are not showing up, ctrl + f5 to force reload, clearing cache and downloading latest version from server
   - (ctrl + shift + r may do same thing)
 - css class styling showing up in inspector html but not in element css was caused by misplaced css {}'s
+- @media queries must go AFTER the styles they change, put at bottom of stylesheet
+- !important: will override all previous css styles, but don't use unless absolutely necessary
+- footer padding needs to be in div.content, not body (caused footer to be pushed down 1 footerheight)
 
 ### BONUS NOTES
 - if this is your first site, bundle add webrick before testing site locally
@@ -140,5 +152,6 @@ title: zzznotes
 - sass numberics, ex: random https://www.w3schools.com/sass/sass_functions_numeric.php
 - css image gallery https://www.w3schools.com/csS/css_image_gallery.asp
 - referenced for footer at bottom of page https://stackoverflow.com/questions/18469262/position-footer-at-bottom-of-page-having-fixed-header
+- big page of positioning? https://www.w3.org/TR/CSS2/visuren.html#position-props
 
 {% endraw %}

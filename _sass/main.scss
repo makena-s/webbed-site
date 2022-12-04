@@ -8,12 +8,18 @@
   src: url(/webbed-site/assets/fonts/fullfont.ttf); // requires leading /, does not accept site.baseurl
 }
 
-// LIST OF CLASSES /////////////////////////////////////////////////////////////////////////////
+// LIST OF CLASSES
 // current, content
+// LIST OF Z-INDEX (higher is on top)
+// nav = 5, overlay = 4
 
 // SET SCSS VARIABLES /////////////////////////////////////////////////////////////////////////////
+$fontsize: 1.3em;
+$pagewidth: 75%; // normal screen
+$pagewidth2: 80%; // narrow screen
 $footerheight: 3em;
 $sidebarwidth: 200px;
+$topbarheight: 2em;
 
 // SCSS FUNCTION TO TOGGLE BACKGROUND COLORS ON OR OFF (I'M A GENIUS) //////////////////////////////////////////
 $colortoggle: true;
@@ -28,13 +34,15 @@ $colortoggle: true;
 }
 
 // NAVIGATION + FOOTER /////////////////////////////////////////////////////////////////////////////
-nav { // topnav and sidenav
+nav { // sidenav (not topnav atm)
   @include replace-bgcolor(slateblue, $colortoggle);
-  font-size: 1.3em;
+  font-size: $fontsize;
   width: $sidebarwidth;
   position: fixed;
+  display: block;
   height: 100%;
   overflow: auto; // scrollbar is only added when necessary
+  z-index: 5;
   a {
     display: block; // new line, full width
     text-decoration: none;
@@ -46,12 +54,21 @@ nav { // topnav and sidenav
 
 .navbutton {
   @include replace-bgcolor(hotpink, $colortoggle);
-  width: 50px;
-  height: 50px;
-  // display: block;
-  // position: fixed;
+  width: $topbarheight;
+  height: $topbarheight;
+  display: block;
+  //position: fixed;
+  //left: 0px;
   filter: invert(100%);
   border-radius: 50%;
+}
+
+div.topbar {
+  position: fixed;
+  display: none;
+  width: $pagewidth;
+  height: $topbarheight;
+  top: 0px;
 }
 
 .w3-overlay {
@@ -63,32 +80,24 @@ nav { // topnav and sidenav
   left:0;
   right:0;
   bottom:0;
-  background-color:
-  rgba(0,0,0,0.5);
-  z-index:2
-}
-
-// RESPONSIVE SIDENAV
-@media screen and (max-width: 500px) { // medium size
-  // .sidebar {
-  //   width: 100%;
-  //   height: auto;
-  //   position: relative;
-  // }
-  // .sidebar a {float: left;}
-  // div.content {margin-left: 0;}
+  background-color: rgba(0,0,0,0.5);
+  z-index:4
 }
 
 footer {
   @include replace-bgcolor(darkolivegreen, $colortoggle);
   height: $footerheight;
+  display: block;
   position: absolute;
-  bottom: 0em; // at bottom of container
+  bottom: 0px; // at bottom of container
+  left: 0px; //$sidebarwidth; // use left/right to set how far absolute element is from edges, similar to top/bottom
+  right: 0px;
+  margin-left: auto; // center content
+  margin-right: auto; // center content
+  text-align: right;
   img {
     @include replace-bgcolor(steelblue, $colortoggle);
-    position: absolute;
     height: 100%;
-    box-shadow: none;
   }
 }
 
@@ -96,23 +105,28 @@ footer {
 html {
   @include replace-bgcolor(lightslategrey, $colortoggle);
   font-size: 125%; // sets base size for em to use
+  overflow-y: scroll; // vertical scrollbar always shown
   // footer adjustments
   height: 100%; // base for other adjustments
 }
 body {
-  background-color: black; // cannot be toggled
+  background-color: black; // no include, so it can't be toggled
   color: turquoise;
   font-family: 'Anonymous Pro', monospace;
+  width: 70%;
+  margin: auto; // center horizontally
+  margin-top: 0px;
   // footer adjustments
+  // margin-bottom: -$footerheight; // bring bottom of page up to footer
+  // padding-bottom: $footerheight; // prevent content/footer overlap
   min-height: 100%;
-  position: relative;
-  padding-bottom: $footerheight; // prevent content/footer overlap
-  margin-bottom: -$footerheight; // bring bottom of page up to footer
+  position: relative; // required for footer positioning
 }
 div.content { // everything besides sidebar
   @include replace-bgcolor(maroon, $colortoggle);
   margin-left: $sidebarwidth;
   height: 100%;
+  padding-bottom: $footerheight; // prevent content/footer overlap
 }
 div {
   @include replace-bgcolor(yellow, $colortoggle); // does not show up with normal markdown
@@ -130,6 +144,7 @@ h1 {
   font-family: myfont;
   font-size: 2em;
   margin: 0em;
+  text-align: center;
 }
 h2, h3, h4, h5, h6 {
   margin: 0em;
@@ -156,4 +171,41 @@ a:hover:not(.current) { // mouse over
 }
 a:active:not(.current) { // selected
  color: crimson;
+}
+
+// RESPONSIVE SIDENAV /////////////////////////////////////////////////////////////////////////////
+@media screen and (min-width: 901px) { // normal screen
+  nav {
+    display: block!important;
+  }
+  div.content {
+    margin-left: $sidebarwidth!important;
+  }
+  div.topbar {
+    display: none!important;
+  }
+}
+@media screen and (max-width: 900px) { // narrow screen
+  nav {
+    display: none;
+  }
+  div.content {
+    padding-top: $topbarheight;
+    margin-left: 0px;
+  }
+  body {
+    width: $pagewidth2;
+  }
+  div.topbar {
+    display: block;
+    width: $pagewidth2;
+  }
+}
+@media screen and (max-width: 600px) { // narrowest screen
+  body {
+    width: 100%;
+  }
+  div.topbar {
+    width: 100%;
+  }
 }
