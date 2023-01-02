@@ -1,11 +1,9 @@
-<!-- top navigation bar source code -->
+<!-- horizontal navigation bar source code -->
 <nav>
+  navbar
   {% for item in site.data.navigation %}
-    <!-- relative_url filter prepends baseurl  -->
-    <!-- "current" class does not work if filenames have spaces -->
     <a href="{{ item.link | relative_url }}" {% if page.url == item.link %}class="current"{% endif %}>
       {{ item.name }}
     </a>
-    <br>
   {% endfor %}
 </nav>

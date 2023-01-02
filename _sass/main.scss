@@ -1,25 +1,12 @@
 // sass that will be imported into CSS hub styles.scss
 
-// FONTS /////////////////////////////////////////////////////////////////////////////
-@import url('https://fonts.googleapis.com/css2?family=Slabo+13px&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
-@font-face { // set custom font
-  font-family: myfont;
-  src: url(/webbed-site/assets/fonts/fullfont.ttf); // requires leading /, does not accept site.baseurl
-}
-
-// LIST OF CLASSES
-// current, content
-// LIST OF Z-INDEX (higher is on top)
-// nav = 5, overlay = 4
-
 // SET SCSS VARIABLES /////////////////////////////////////////////////////////////////////////////
-$fontsize: 1.3em;
+$relativeurl: "/webbed-site";
 $pagewidth: 75%; // normal screen
 $pagewidth2: 80%; // narrow screen
-$footerheight: 3em;
-$sidebarwidth: 200px;
-$topbarheight: 2em;
+// $headerheight: 2em;
+// $footerheight: 3em;
+$sidenavwidth: 200px;
 
 // SCSS FUNCTION TO TOGGLE BACKGROUND COLORS ON OR OFF (I'M A GENIUS) //////////////////////////////////////////
 $colortoggle: true;
@@ -33,107 +20,59 @@ $colortoggle: true;
   }
 }
 
-// NAVIGATION + FOOTER /////////////////////////////////////////////////////////////////////////////
-nav { // sidenav (not topnav atm)
-  @include replace-bgcolor(slateblue, $colortoggle);
-  font-size: $fontsize;
-  width: $sidebarwidth;
-  position: fixed;
-  display: block;
-  height: 100%;
-  overflow: auto; // scrollbar is only added when necessary
-  z-index: 5;
-  a {
-    display: block; // new line, full width
-    text-decoration: none;
-  }
-  a.current { // "current" class for highlighting navigation
-      color: limegreen;
-  }
+// FONTS /////////////////////////////////////////////////////////////////////////////
+@import url('https://fonts.googleapis.com/css2?family=Slabo+13px&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
+@font-face { // set custom font
+  font-family: myfont;
+  src: url($relativeurl+"/assets/fonts/fullfont.ttf"); // requires leading /, does not accept liquid site.baseurl
 }
 
-.navbutton {
-  @include replace-bgcolor(hotpink, $colortoggle);
-  width: $topbarheight;
-  height: $topbarheight;
-  display: block;
-  //position: fixed;
-  //left: 0px;
-  filter: invert(100%);
-  border-radius: 50%;
-}
-
-div.topbar {
-  position: fixed;
-  display: none;
-  width: $pagewidth;
-  height: $topbarheight;
-  top: 0px;
-}
-
-.w3-overlay {
-  position:fixed;
-  display:none;
-  width:100%;
-  height:100%;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  background-color: rgba(0,0,0,0.5);
-  z-index:4
-}
-
-footer {
-  @include replace-bgcolor(darkolivegreen, $colortoggle);
-  height: $footerheight;
-  display: block;
-  position: absolute;
-  bottom: 0px; // at bottom of container
-  left: 0px; //$sidebarwidth; // use left/right to set how far absolute element is from edges, similar to top/bottom
-  right: 0px;
-  margin-left: auto; // center content
-  margin-right: auto; // center content
-  text-align: right;
-  img {
-    @include replace-bgcolor(steelblue, $colortoggle);
-    height: 100%;
-  }
-}
+// LIST OF CLASSES
+// current, container, flex
+// LIST OF Z-INDEX (higher is on top)
+// nav = 5, overlay = 4
 
 // PAGE CSS /////////////////////////////////////////////////////////////////////////////
 html {
   @include replace-bgcolor(lightslategrey, $colortoggle);
-  font-size: 125%; // sets base size for em to use
-  overflow-y: scroll; // vertical scrollbar always shown
-  // footer adjustments
-  height: 100%; // base for other adjustments
+  height: 100%; // full screen, base for other adjustments including background
 }
 body {
-  background-color: black; // no include, so it can't be toggled
+  // background-color: black; // no include, so it can't be toggled
+  background-image: url($relativeurl+"/assets/images/tilesea.png");
   color: turquoise;
   font-family: 'Anonymous Pro', monospace;
-  width: 70%;
-  margin: auto; // center horizontally
-  margin-top: 0px;
-  // footer adjustments
-  // margin-bottom: -$footerheight; // bring bottom of page up to footer
-  // padding-bottom: $footerheight; // prevent content/footer overlap
-  min-height: 100%;
-  position: relative; // required for footer positioning
+  font-size: 125%; // sets base size for em to use
+  overflow-y: scroll; // vertical scrollbar always shown
+  margin: 0; // full screen
+  min-height: 100%; // full screen
 }
-div.content { // everything besides sidebar
-  @include replace-bgcolor(maroon, $colortoggle);
-  margin-left: $sidebarwidth;
-  height: 100%;
-  padding-bottom: $footerheight; // prevent content/footer overlap
+div.container { // contains all layout elements
+  @include replace-bgcolor(transparent, $colortoggle);
+  max-width: 80%;
+  padding: 20px;
+  margin: 0 auto; // center horizontally
+}
+div.flex {
+  @include replace-bgcolor(transparent, $colortoggle);
+  display: flex;
 }
 div {
   @include replace-bgcolor(yellow, $colortoggle); // does not show up with normal markdown
 }
+main { // page content
+  @include replace-bgcolor(purple, $colortoggle);
+  width:100%;
+}
 p {
   @include replace-bgcolor(yellow, $colortoggle);
   margin: 0em; // markdown turns lines (including images) into p
+}
+.borderimg {
+  border: 10px solid transparent;
+  padding: 15px;
+  border-image: url($relativeurl+"/assets/images/tileflame.png") 20 round; // or stretch. # = how many across
 }
 ul {
   margin: 0em; // for markdown again
@@ -155,10 +94,57 @@ img {
   vertical-align: bottom;
 }
 
-// LINKS + EXCLUDING LINKS WITH "CURRENT" CLASS /////////////////////////////////////////////////////////////////////////////
+// NAVIGATION, HEADER, FOOTER /////////////////////////////////////////////////////////////////////////////
+nav { // horizontal navbar
+  @include replace-bgcolor(slateblue, $colortoggle);
+  font-size: 1.3em;
+  max-width:100%;
+  // max-height:50px;
+  // height:50px;
+  margin-bottom:20px;
+  text-align: center;
+  // overflow: auto; // scrollbar is only added when necessary
+}
+aside.sidenav { // side navigation
+  @include replace-bgcolor(slateblue, $colortoggle);
+  // font-size: 1.3em;
+  width: $sidenavwidth;
+  margin-right: 20px;
+  // overflow: auto; // scrollbar is only added when necessary
+  a {
+    display: block; // new line, full width
+  }
+  section:not(:last-child) { // every section besides last one
+    margin-bottom: 20px;
+  }
+  .subtitle {
+    color: black;
+  }
+}
+header {
+  @include replace-bgcolor(maroon, $colortoggle);
+  max-width:100%;
+  max-height:150px;
+  // height:150px;
+  margin-bottom:20px;
+  img {
+    filter: invert(100%);
+  }
+}
+footer {
+  @include replace-bgcolor(darkolivegreen, $colortoggle);
+  max-width:100%;
+  margin-top: 20px;
+}
+
+// LINKS /////////////////////////////////////////////////////////////////////////////
 a {
   @include replace-bgcolor(darkgrey, $colortoggle);
-  // text-decoration: none;
+  text-decoration: none;
+  display: inline-block;
+}
+a.current { // "current" class for highlighting navigation
+    color: limegreen;
 }
 a:link:not(.current) { // unvisited
  color: white;
@@ -174,38 +160,30 @@ a:active:not(.current) { // selected
 }
 
 // RESPONSIVE SIDENAV /////////////////////////////////////////////////////////////////////////////
-@media screen and (min-width: 901px) { // normal screen
-  nav {
-    display: block!important;
-  }
-  div.content {
-    margin-left: $sidebarwidth!important;
-  }
-  div.topbar {
-    display: none!important;
-  }
-}
-@media screen and (max-width: 900px) { // narrow screen
-  nav {
-    display: none;
-  }
-  div.content {
-    padding-top: $topbarheight;
-    margin-left: 0px;
-  }
-  body {
-    width: $pagewidth2;
-  }
-  div.topbar {
-    display: block;
-    width: $pagewidth2;
-  }
-}
-@media screen and (max-width: 600px) { // narrowest screen
-  body {
-    width: 100%;
-  }
-  div.topbar {
-    width: 100%;
-  }
-}
+// @media screen and (min-width: 901px) { // normal screen
+//   nav {
+//     display: block;
+//   }
+//   div.content {
+//     margin-left: $sidenavwidth;
+//   }
+//   div.header {
+//     display: none;
+//   }
+// }
+// @media screen and (max-width: 900px) { // narrow screen
+//   nav {
+//     display: none;
+//   }
+//   div.content {
+//     padding-top: $headerheight;
+//     margin-left: 0px;
+//   }
+//   body {
+//     width: $pagewidth2;
+//   }
+//   div.header {
+//     display: block;
+//     width: $pagewidth2;
+//   }
+// }

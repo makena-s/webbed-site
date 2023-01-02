@@ -11,30 +11,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
       console.log("HEWWO? COMPUTER?");
-      // open and close sidebar
-      function opennav() {
-        document.querySelector("nav").style.display = "block"; // selects first element in doc with specified css selector
-        document.querySelector("div.content").style.marginLeft = "200px"; // does not support variables such as $sidebarwidth
-        document.querySelector(".w3-overlay").style.display = "block";
-        document.querySelector("div.topbar").style.display = "none";
-        console.log("OPENNAV");
-      }
-      function closenav() {
-        // document.querySelectorAll("*:not([nav])").style.width = "100%";
-        document.querySelector("nav").style.display = "none";
-        document.querySelector("div.content").style.marginLeft = "0px";
-        document.querySelector(".w3-overlay").style.display = "none";
-        document.querySelector("div.topbar").style.display = "block";
-        console.log("CLOSENAV");
-      }
     </script>
   </head>
 
   <body>
+    <div class="container">
+      <!-- header source code -->
+<header>
+  header
+  <img src="/webbed-site/assets/images/tileflame.png" alt="dog">
+</header>
 
-    <!-- side navigation bar source code -->
+      <!-- horizontal navigation bar source code -->
 <nav>
-  <!-- <img src="/webbed-site/assets/images/favicon-96.png" alt="dog" class="navbutton" onclick="closenav()"> -->
+  navbar
   
     <a href="/webbed-site/" >
       home
@@ -54,27 +44,54 @@
   
 </nav>
 
-    <div class="content"> <!-- everything besides sidenav -->
-      <div class="w3-overlay" onclick="closenav()" style="cursor:pointer"></div> <!-- hovering cursor = hand -->
-      <!-- top bar (for small screens) source code -->
-<div class="topbar">
-  <!-- <div onclick="opennav()" style="position:absolute; height: 100%; background-color:blue;">[ MENU ]</div> -->
-  <img src="/webbed-site/assets/images/favicon-96.png" alt="dog" class="navbutton" onclick="opennav()">
-</div>
+      <div class="flex">
+        <!-- side navigation bar source code -->
+<aside class="sidenav">
+  sidenav
+  <section>
+    <div class="subtitle">subtitle</div>
+    lorem ipsum
+  </section>
 
-      <!-- coolpage page template -->
+  <section>
+    <div class="subtitle">subtitle</div>
+    
+      <a href="/webbed-site/" >
+        home
+      </a>
+    
+      <a href="/webbed-site/about.html" >
+        about
+      </a>
+    
+      <a href="/webbed-site/coolpages.html" >
+        coolpages
+      </a>
+    
+      <a href="/webbed-site/ZZZNOTES.html" >
+        zzznotes
+      </a>
+    
+  </section>
+</aside>
+
+        <main>
+          main content
+          <!-- coolpage page template -->
 <h1>numbuh 2</h1>
 
 <p>cool test page <em>numbuh 2</em></p>
 
 
+        </main>
+      </div>
       <!-- footer source code -->
 <footer>
-  <img src="/webbed-site/assets/images/doggif.gif" alt="dog gif">
+  footer
+  <img src="/webbed-site/assets/images/tileflame.png" alt="dog gif">
 </footer>
 
     </div>
-
   </body>
 
 </html>

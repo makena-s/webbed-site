@@ -1,32 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Slabo+13px&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap");
-@font-face { font-family: myfont; src: url(/webbed-site/assets/fonts/fullfont.ttf); }
+@font-face { font-family: myfont; src: url("/webbed-site/assets/fonts/fullfont.ttf"); }
 
-nav { background-color: slateblue; font-size: 1.3em; width: 200px; position: fixed; display: block; height: 100%; overflow: auto; z-index: 5; }
+html { background-color: lightslategrey; height: 100%; }
 
-nav a { display: block; text-decoration: none; }
+body { background-image: url("/webbed-site/assets/images/tilesea.png"); color: turquoise; font-family: 'Anonymous Pro', monospace; font-size: 125%; overflow-y: scroll; margin: 0; min-height: 100%; }
 
-nav a.current { color: limegreen; }
+div.container { background-color: transparent; max-width: 80%; padding: 20px; margin: 0 auto; }
 
-.navbutton { background-color: hotpink; width: 2em; height: 2em; display: block; filter: invert(100%); border-radius: 50%; }
-
-div.topbar { position: fixed; display: none; width: 75%; height: 2em; top: 0px; }
-
-.w3-overlay { position: fixed; display: none; width: 100%; height: 100%; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 4; }
-
-footer { background-color: darkolivegreen; height: 3em; display: block; position: absolute; bottom: 0px; left: 0px; right: 0px; margin-left: auto; margin-right: auto; text-align: right; }
-
-footer img { background-color: steelblue; height: 100%; }
-
-html { background-color: lightslategrey; font-size: 125%; overflow-y: scroll; height: 100%; }
-
-body { background-color: black; color: turquoise; font-family: 'Anonymous Pro', monospace; width: 70%; margin: auto; margin-top: 0px; min-height: 100%; position: relative; }
-
-div.content { background-color: maroon; margin-left: 200px; height: 100%; padding-bottom: 3em; }
+div.flex { background-color: transparent; display: flex; }
 
 div { background-color: yellow; }
 
+main { background-color: purple; width: 100%; }
+
 p { background-color: yellow; margin: 0em; }
+
+.borderimg { border: 10px solid transparent; padding: 15px; border-image: url("/webbed-site/assets/images/tileflame.png") 20 round; }
 
 ul { margin: 0em; }
 
@@ -36,7 +26,25 @@ h2, h3, h4, h5, h6 { margin: 0em; }
 
 img { margin: 0em; vertical-align: bottom; }
 
-a { background-color: darkgrey; }
+nav { background-color: slateblue; font-size: 1.3em; max-width: 100%; margin-bottom: 20px; text-align: center; }
+
+aside.sidenav { background-color: slateblue; width: 200px; margin-right: 20px; }
+
+aside.sidenav a { display: block; }
+
+aside.sidenav section:not(:last-child) { margin-bottom: 20px; }
+
+aside.sidenav .subtitle { color: black; }
+
+header { background-color: maroon; max-width: 100%; max-height: 150px; margin-bottom: 20px; }
+
+header img { filter: invert(100%); }
+
+footer { background-color: darkolivegreen; max-width: 100%; margin-top: 20px; }
+
+a { background-color: darkgrey; text-decoration: none; display: inline-block; }
+
+a.current { color: limegreen; }
 
 a:link:not(.current) { color: white; }
 
@@ -45,11 +53,5 @@ a:visited:not(.current) { color: white; }
 a:hover:not(.current) { color: gold; }
 
 a:active:not(.current) { color: crimson; }
-
-@media screen and (min-width: 901px) { nav { display: block !important; } div.content { margin-left: 200px !important; } div.topbar { display: none !important; } }
-
-@media screen and (max-width: 900px) { nav { display: none; } div.content { padding-top: 2em; margin-left: 0px; } body { width: 80%; } div.topbar { display: block; width: 80%; } }
-
-@media screen and (max-width: 600px) { body { width: 100%; } div.topbar { width: 100%; } }
 
 /*# sourceMappingURL=styles.css.map */

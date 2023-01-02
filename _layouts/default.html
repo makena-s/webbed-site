@@ -13,35 +13,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
       console.log("HEWWO? COMPUTER?");
-      // open and close sidebar
-      function opennav() {
-        document.querySelector("nav").style.display = "block"; // selects first element in doc with specified css selector
-        document.querySelector("div.content").style.marginLeft = "200px"; // does not support variables such as $sidebarwidth
-        document.querySelector(".w3-overlay").style.display = "block";
-        document.querySelector("div.topbar").style.display = "none";
-        console.log("OPENNAV");
-      }
-      function closenav() {
-        // document.querySelectorAll("*:not([nav])").style.width = "100%";
-        document.querySelector("nav").style.display = "none";
-        document.querySelector("div.content").style.marginLeft = "0px";
-        document.querySelector(".w3-overlay").style.display = "none";
-        document.querySelector("div.topbar").style.display = "block";
-        console.log("CLOSENAV");
-      }
     </script>
   </head>
 
   <body>
-
-    {% include sidenav.html %}
-    <div class="content"> <!-- everything besides sidenav -->
-      <div class="w3-overlay" onclick="closenav()" style="cursor:pointer"></div> <!-- hovering cursor = hand -->
-      {% include topbar.html %}
-      {{ content }}
+    <div class="container">
+      {% include header.html %}
+      {% include navbar.html %}
+      <div class="flex">
+        {% include sidenav.html %}
+        <main>
+          main content
+          {{ content }}
+        </main>
+      </div>
       {% include footer.html %}
     </div>
-
   </body>
 
 </html>
